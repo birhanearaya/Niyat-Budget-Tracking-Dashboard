@@ -7,7 +7,7 @@ export default function ControlBar() {
     return (
         <div className="flex flex-wrap items-center gap-3">
             {/* Date Range */}
-            <div className="flex items-center gap-2">
+            <div className="flex w-full flex-wrap items-center gap-2 lg:w-auto">
                 <HiOutlineCalendarDays className="h-4 w-4 text-gray-400" />
                 <input
                     type="date"
@@ -23,7 +23,7 @@ export default function ControlBar() {
             </div>
 
             {/* Divider */}
-            <div className="h-6 w-px bg-slate-200" />
+            <div className="hidden h-6 w-px bg-slate-200 lg:block" />
 
             {/* Fiscal Year */}
             <select className="rounded-xl border px-3 py-2 text-sm text-slate-700">
@@ -35,7 +35,7 @@ export default function ControlBar() {
             </select>
 
             {/* Divider */}
-            <div className="h-6 w-px bg-slate-200" />
+            <div className="hidden h-6 w-px bg-slate-200 lg:block" />
 
             {/* Comparison Toggle */}
             <label className="flex cursor-pointer items-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-600">
@@ -48,10 +48,10 @@ export default function ControlBar() {
             </label>
 
             {/* Divider */}
-            <div className="h-6 w-px bg-slate-200" />
+            <div className="hidden h-6 w-px bg-slate-200 lg:block" />
 
             {/* Addis Ababa Budget Hierarchy Filters */}
-            <div className="ml-auto flex items-center gap-2">
+            <div className="flex w-full flex-wrap items-center gap-2 xl:ml-auto xl:w-auto">
                 <HiOutlineFunnel className="h-4 w-4 text-slate-400" />
                 <select className="rounded-xl border px-3 py-2 text-sm text-slate-700">
                     <option value="">Sector Bureau</option>

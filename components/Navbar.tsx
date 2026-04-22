@@ -2,6 +2,7 @@
 
 import { useMemo } from "react";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 import {
     HiOutlineChatBubbleOvalLeftEllipsis,
     HiOutlineClock,
@@ -64,9 +65,9 @@ export default function Navbar() {
     }, [pathname]);
 
     return (
-        <nav className="sticky top-0 z-50 flex items-center justify-between border-b border-slate-200 bg-white/95 px-6 py-3.5 backdrop-blur">
+        <nav className="sticky top-0 z-50 flex items-center justify-between border-b border-slate-200 bg-white/95 px-4 py-3 backdrop-blur md:px-6">
             {/* Left — Logo & Title */}
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-3 md:gap-6">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#0645ba] ring-2 ring-[#e0b700] ring-offset-2">
                     {/* Mocking the logo from the image */}
                     <div className="flex items-end gap-0.5 mt-1">
@@ -76,18 +77,18 @@ export default function Navbar() {
                     </div>
                 </div>
 
-                <div className="flex items-center gap-3">
-                    <HiOutlineSquares2X2 className="h-5 w-5 text-gray-400" />
+                <div className="flex items-center gap-2 md:gap-3">
+                    <HiOutlineSquares2X2 className="hidden h-5 w-5 text-gray-400 sm:block" />
                     <div>
-                        <h1 className="text-sm font-semibold text-slate-700">{currentLabel}</h1>
-                        <p className="text-xs text-slate-400">Budget Tracking Platform</p>
+                        <h1 className="text-sm font-semibold text-slate-700 md:text-base">{currentLabel}</h1>
+                        <p className="hidden text-xs text-slate-400 sm:block">Budget Tracking Platform</p>
                     </div>
                 </div>
             </div>
 
             {/* Right — Actions & Profile */}
-            <div className="flex items-center gap-6">
-                <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 md:gap-6">
+                <div className="hidden items-center gap-2 md:flex">
                     <button className="text-gray-500 hover:text-gray-700 hover:bg-gray-50 p-2 rounded-lg transition">
                         <HiOutlineChatBubbleOvalLeftEllipsis className="h-[22px] w-[22px] stroke-[1.5]" />
                     </button>
@@ -131,16 +132,16 @@ export default function Navbar() {
                     </button>
                 </div>
 
-                <div className="h-6 w-px bg-gray-200" />
+                <div className="hidden h-6 w-px bg-gray-200 md:block" />
 
                 {/* Profile Dropdown */}
                 <Dropdown
                     arrowIcon={false}
                     inline
                     label={
-                        <div className="flex items-center gap-2 hover:bg-gray-50 px-2 py-1 -mx-2 rounded-lg transition-colors cursor-pointer">
+                        <div className="flex cursor-pointer items-center gap-2 rounded-lg px-2 py-1 -mx-2 transition-colors hover:bg-gray-50">
                             <HiOutlineUserCircle className="h-6 w-6 text-gray-500 stroke-[1.5]" />
-                            <span className="text-sm font-medium text-gray-700">Birhane Araya</span>
+                            <span className="hidden text-sm font-medium text-gray-700 lg:block">Birhane Araya</span>
                             <HiChevronDown className="h-4 w-4 text-gray-400" />
                         </div>
                     }
@@ -156,9 +157,28 @@ export default function Navbar() {
                     <DropdownItem className="text-red-500 font-medium">Sign out</DropdownItem>
                 </Dropdown>
 
-                <button className="ml-2 text-gray-500 hover:text-gray-700 hover:bg-gray-50 p-2 rounded-lg transition">
-                    <HiOutlineBars3 className="h-7 w-7 stroke-[1.5]" />
-                </button>
+                <Dropdown
+                    arrowIcon={false}
+                    inline
+                    label={
+                        <button className="ml-1 rounded-lg p-2 text-gray-500 transition hover:bg-gray-50 hover:text-gray-700 md:ml-2">
+                            <HiOutlineBars3 className="h-7 w-7 stroke-[1.5]" />
+                        </button>
+                    }
+                >
+                    <DropdownHeader>
+                        <span className="block text-sm font-semibold text-gray-900">Budgets Menu</span>
+                    </DropdownHeader>
+                    <DropdownItem as={Link} href="/">Dashboard</DropdownItem>
+                    <DropdownItem as={Link} href="/allocations">Budget Allocation</DropdownItem>
+                    <DropdownItem as={Link} href="/encumbrances">Encumbrances</DropdownItem>
+                    <DropdownItem as={Link} href="/expenditures">Expenditures</DropdownItem>
+                    <DropdownItem as={Link} href="/transfers">Transfers &amp; Adjust</DropdownItem>
+                    <DropdownItem as={Link} href="/transactions">Transactions Ledger</DropdownItem>
+                    <DropdownItem as={Link} href="/alerts">Alert Center</DropdownItem>
+                    <DropdownItem as={Link} href="/audit">Audit Tools</DropdownItem>
+                    <DropdownItem as={Link} href="/settings">Settings</DropdownItem>
+                </Dropdown>
             </div>
         </nav>
     );

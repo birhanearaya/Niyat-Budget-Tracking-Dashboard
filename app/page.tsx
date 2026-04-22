@@ -12,16 +12,16 @@ export default function DashboardPage() {
   return (
     <>
       {/* Fixed Filters Container */}
-      <div className="z-40 pt-4 px-6 pb-2 shrink-0">
+      <div className="z-40 shrink-0 px-4 pb-2 pt-4 md:px-6">
         <div className="surface-panel p-3">
           <ControlBar />
         </div>
       </div>
 
       {/* Scrollable Dashboard Elements */}
-      <div className="flex-1 overflow-y-auto px-6 pb-6 pt-2 scrollbar-thin">
+      <div className="flex-1 overflow-y-auto px-4 pb-4 pt-2 scrollbar-thin md:px-6 md:pb-6">
         {/* Unified Dashboard Elements Background Container */}
-        <main className="surface-panel space-y-8 p-6 min-h-full">
+        <main className="surface-panel min-h-full space-y-8 p-4 sm:p-6">
 
           {/* Section 1: KPI Cards */}
           <KpiCards />

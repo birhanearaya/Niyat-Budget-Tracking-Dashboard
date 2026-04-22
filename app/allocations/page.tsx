@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import ControlBar from "@/components/ControlBar";
 import { HiOutlineMagnifyingGlass, HiOutlinePencilSquare, HiOutlineCheck, HiOutlineBanknotes } from "react-icons/hi2";
 import { Table, TableHead, TableHeadCell, TableBody, TableRow, TableCell, Modal, ModalHeader, ModalBody, ModalFooter, Button, TextInput } from "flowbite-react";
 
@@ -36,26 +35,19 @@ export default function AllocationsPage() {
 
     return (
         <>
-            {/* Fixed Filters Container */}
-            <div className="z-40 pt-4 px-6 pb-2 shrink-0">
-                <div className="surface-panel p-3">
-                    <ControlBar />
-                </div>
-            </div>
-
             {/* Scrollable Dashboard Elements */}
-            <div className="flex-1 overflow-y-auto px-6 pb-6 pt-2 scrollbar-thin">
+            <div className="flex-1 overflow-y-auto px-4 pb-4 pt-4 scrollbar-thin md:px-6 md:pb-6">
                 <main className="surface-panel space-y-0 min-h-full overflow-hidden flex flex-col">
 
-                    <div className="p-6 border-b border-gray-100 flex items-center justify-between">
+                    <div className="flex flex-col gap-3 border-b border-gray-100 p-4 sm:p-6 lg:flex-row lg:items-center lg:justify-between">
                         <h2 className="text-xl font-bold text-gray-900">Master Budget Allocations</h2>
-                        <div className="flex items-center gap-3">
+                        <div className="flex w-full flex-col items-stretch gap-2 sm:w-auto sm:flex-row sm:items-center sm:gap-3">
                             <div className="relative">
                                 <HiOutlineMagnifyingGlass className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
                                 <input
                                     type="text"
                                     placeholder="Search limits..."
-                                    className="pl-10 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:ring-[#0645ba] focus:border-[#0645ba]"
+                                    className="w-full pl-10 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:ring-[#0645ba] focus:border-[#0645ba] sm:w-64"
                                 />
                             </div>
                             <Button color="blue" className="bg-[#0645ba] enabled:hover:bg-[#053a9e] rounded-lg">
@@ -104,7 +96,7 @@ export default function AllocationsPage() {
                         </Table>
                     </div>
 
-                    <div className="p-4 border-t border-gray-100 flex items-center justify-between text-sm text-gray-500 bg-gray-50 mt-auto">
+                    <div className="mt-auto flex flex-col gap-2 border-t border-gray-100 bg-gray-50 p-4 text-sm text-gray-500 sm:flex-row sm:items-center sm:justify-between">
                         <span>Showing 1 to 6 of 42 Allocations</span>
                         <div className="flex items-center gap-2">
                             <button className="px-3 py-1 rounded bg-white border border-gray-200 shadow-sm text-gray-400 cursor-not-allowed">Prevent</button>

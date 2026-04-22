@@ -37,8 +37,9 @@ export default function AuditLog() {
             </div>
 
             <div className="rounded-xl border border-gray-200 bg-white">
+                <div className="overflow-x-auto">
                 {/* Header row */}
-                <div className="grid grid-cols-[180px_100px_100px_1fr_120px] gap-4 border-b border-gray-100 bg-gray-50/60 px-5 py-2.5">
+                <div className="min-w-[760px] grid grid-cols-[180px_100px_100px_1fr_120px] gap-4 border-b border-gray-100 bg-gray-50/60 px-5 py-2.5">
                     <span className="text-xs font-semibold uppercase tracking-wide text-gray-400">
                         Timestamp
                     </span>
@@ -57,7 +58,7 @@ export default function AuditLog() {
                 </div>
 
                 {/* Log entries */}
-                <div className="divide-y divide-gray-50">
+                <div className="min-w-[760px] divide-y divide-gray-50">
                     {auditLogData.map((entry) => (
                         <div
                             key={entry.id}
@@ -82,6 +83,7 @@ export default function AuditLog() {
                             </span>
                         </div>
                     ))}
+                </div>
                 </div>
 
                 {/* Footer */}

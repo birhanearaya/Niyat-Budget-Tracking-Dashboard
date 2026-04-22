@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import ControlBar from "@/components/ControlBar";
 import { HiOutlineMagnifyingGlass, HiOutlineShieldCheck, HiOutlineXMark } from "react-icons/hi2";
 import { Table, TableHead, TableHeadCell, TableBody, TableRow, TableCell, Modal, ModalHeader, ModalBody, ModalFooter, Button } from "flowbite-react";
 
@@ -26,6 +25,9 @@ const encumbranceData: EncumbranceRow[] = [
 export default function EncumbrancesPage() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedItem, setSelectedItem] = useState<EncumbranceRow | null>(null);
+    const selectedAmount = selectedItem?.amount ?? 0;
+    const selectedAvailable = selectedItem?.available ?? 0;
+    const isOverLimit = selectedAvailable < selectedAmount;
 
     const handleReview = (item: EncumbranceRow) => {
         setSelectedItem(item);
@@ -34,24 +36,18 @@ export default function EncumbrancesPage() {
 
     return (
         <>
-            <div className="z-40 pt-4 px-6 pb-2 shrink-0">
-                <div className="surface-panel p-3">
-                    <ControlBar />
-                </div>
-            </div>
-
-            <div className="flex-1 overflow-y-auto px-6 pb-6 pt-2 scrollbar-thin">
+            <div className="flex-1 overflow-y-auto px-4 pb-4 pt-4 scrollbar-thin md:px-6 md:pb-6">
                 <main className="surface-panel space-y-0 min-h-full overflow-hidden flex flex-col">
 
-                    <div className="p-6 border-b border-gray-100 flex items-center justify-between">
+                    <div className="flex flex-col gap-3 border-b border-gray-100 p-4 sm:p-6 lg:flex-row lg:items-center lg:justify-between">
                         <h2 className="text-xl font-bold text-gray-900">Encumbrances & Commitments pending verification</h2>
-                        <div className="flex items-center gap-3">
+                        <div className="flex w-full items-center gap-3 sm:w-auto">
                             <div className="relative">
                                 <HiOutlineMagnifyingGlass className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
                                 <input
                                     type="text"
                                     placeholder="Purchase Order / Ref ID..."
-                                    className="w-72 pl-10 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:ring-[#0645ba] focus:border-[#0645ba]"
+                                    className="w-full pl-10 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:ring-[#0645ba] focus:border-[#0645ba] sm:w-72"
                                 />
                             </div>
                         </div>
@@ -113,20 +109,20 @@ export default function EncumbrancesPage() {
                 </ModalHeader>
                 <ModalBody className="bg-gray-50/50">
                     <div className="space-y-6">
-                        <div className="grid grid-cols-2 gap-4">
+                        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                             <div className="bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
                                 <p className="text-xs text-gray-400 mb-1">Requested Encumbrance</p>
-                                <p className="text-xl font-bold text-gray-900">ETB {selectedItem?.amount.toLocaleString()}</p>
+                                <p className="text-xl font-bold text-gray-900">ETB {selectedAmount.toLocaleString()}</p>
                             </div>
                             <div className="bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
                                 <p className="text-xs text-gray-400 mb-1">Remaining Valid Allocation</p>
-                                <p className={`text-xl font-bold ${selectedItem?.available < selectedItem?.amount ? 'text-red-500' : 'text-[#0645ba]'}`}>
-                                    ETB {selectedItem?.available.toLocaleString()}
+                                <p className={`text-xl font-bold ${isOverLimit ? 'text-red-500' : 'text-[#0645ba]'}`}>
+                                    ETB {selectedAvailable.toLocaleString()}
                                 </p>
                             </div>
                         </div>
 
-                        {selectedItem?.available < selectedItem?.amount && (
+                        {isOverLimit && (
                             <div className="p-4 bg-red-50 border border-red-100 rounded-lg flex items-start gap-3">
                                 <HiOutlineXMark className="h-5 w-5 text-red-500 shrink-0 mt-0.5" />
                                 <div>
@@ -153,7 +149,7 @@ export default function EncumbrancesPage() {
                     </Button>
                     <Button
                         onClick={() => setIsModalOpen(false)}
-                        disabled={selectedItem?.available < selectedItem?.amount}
+                        disabled={isOverLimit}
                         className="bg-green-600 enabled:hover:bg-green-700 rounded-lg items-center gap-2 flex"
                     >
                         <HiOutlineShieldCheck className="h-4 w-4 mr-1" />

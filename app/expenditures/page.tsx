@@ -1,6 +1,5 @@
 "use client";
 
-import ControlBar from "@/components/ControlBar";
 import { HiOutlineDocumentArrowDown, HiOutlineEye } from "react-icons/hi2";
 import { Table, TableHead, TableHeadCell, TableBody, TableRow, TableCell, Button } from "flowbite-react";
 
@@ -14,16 +13,10 @@ const expendituresData = [
 export default function ExpendituresPage() {
     return (
         <>
-            <div className="z-40 pt-4 px-6 pb-2 shrink-0">
-                <div className="surface-panel p-3">
-                    <ControlBar />
-                </div>
-            </div>
-
-            <div className="flex-1 overflow-y-auto px-6 pb-6 pt-2 scrollbar-thin">
+            <div className="flex-1 overflow-y-auto px-4 pb-4 pt-4 scrollbar-thin md:px-6 md:pb-6">
                 <main className="surface-panel space-y-0 min-h-full overflow-hidden flex flex-col">
 
-                    <div className="p-6 border-b border-gray-100 flex items-center justify-between">
+                    <div className="flex flex-col gap-3 border-b border-gray-100 p-4 sm:p-6 lg:flex-row lg:items-center lg:justify-between">
                         <div>
                             <h2 className="text-xl font-bold text-gray-900">Historical Disbursements & Expenditures</h2>
                             <p className="text-sm text-gray-500 mt-1">Unified view of fully approved payments leaving the general ledger.</p>

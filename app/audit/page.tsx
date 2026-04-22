@@ -1,19 +1,12 @@
 "use client";
 
-import ControlBar from "@/components/ControlBar";
 import AuditLog from "@/components/AuditLog";
 
 export default function AuditPage() {
     return (
         <>
-            <div className="z-40 pt-4 px-6 pb-2 shrink-0">
-                <div className="surface-panel p-3">
-                    <ControlBar />
-                </div>
-            </div>
-
-            <div className="flex-1 overflow-y-auto px-6 pb-6 pt-2 scrollbar-thin">
-                <main className="surface-panel min-h-full p-6 max-w-5xl mx-auto">
+            <div className="flex-1 overflow-y-auto px-4 pb-4 pt-4 scrollbar-thin md:px-6 md:pb-6">
+                <main className="surface-panel mx-auto min-h-full max-w-5xl p-4 sm:p-6">
                     <AuditLog />
                 </main>
             </div>

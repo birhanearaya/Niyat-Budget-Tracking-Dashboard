@@ -44,7 +44,7 @@ export default function ComparativeCharts() {
                                     <Cell key={entry.name} fill={entry.color} />
                                 ))}
                             </Pie>
-                            <Tooltip formatter={(value: number) => `ETB ${formatETB(value)}`} />
+                            <Tooltip formatter={(value) => `ETB ${formatETB(Number(value ?? 0))}`} />
                             <Legend verticalAlign="bottom" iconType="circle" wrapperStyle={{ fontSize: 12 }} />
                         </PieChart>
                     </ResponsiveContainer>
@@ -68,8 +68,10 @@ export default function ComparativeCharts() {
                             />
                             <YAxis yAxisId="rate" orientation="right" tickFormatter={(v: number) => `${v.toFixed(0)}%`} tickLine={false} axisLine={false} width={44} />
                             <Tooltip
-                                formatter={(value: number, name: string) =>
-                                    name === "Utilization Rate" ? `${value.toFixed(2)}%` : `ETB ${formatETB(value)}`
+                                formatter={(value, name) =>
+                                    name === "Utilization Rate"
+                                        ? `${Number(value ?? 0).toFixed(2)}%`
+                                        : `ETB ${formatETB(Number(value ?? 0))}`
                                 }
                             />
                             <Legend verticalAlign="top" align="right" wrapperStyle={{ fontSize: 12 }} />

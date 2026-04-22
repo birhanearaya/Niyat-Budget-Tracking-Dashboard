@@ -1,26 +1,87 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* ============================================================
+   Budget Tracking Dashboard — Global Styles
+   Light-mode only. No gradients. Flat design.
+   ============================================================ */
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: #0645ba;
+  --color-primary-light: #e8eef8;
+  --color-highlight: #e0b700;
+  --color-highlight-light: #fef9e7;
+  --color-background: #ffffff;
+  --color-surface: #f9fafb;
+  --color-foreground: #111827;
+  --color-muted: #6b7280;
+  --color-border: #e5e7eb;
+  --font-sans: "Fira Sans", ui-sans-serif, system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ---- Base ---- */
+html {
+  color-scheme: light;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-surface);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---- Force Flowbite Light mode ---- */
+[data-theme="dark"],
+.dark {
+  color-scheme: light !important;
+}
+
+/* ---- Remove all Flowbite heavy shadows ---- */
+.shadow-lg,
+.shadow-xl,
+.shadow-2xl {
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.04) !important;
+}
+
+/* ---- No gradients on buttons ---- */
+button,
+.btn,
+[class*="btn-"] {
+  background-image: none !important;
+}
+
+/* ---- Scrollbar ---- */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* ---- Recharts overrides ---- */
+.recharts-cartesian-axis-tick-value {
+  font-size: 12px;
+  fill: #6b7280;
+}
+
+.recharts-tooltip-wrapper {
+  outline: none;
+}
+
+/* ---- Audit log read-only styling ---- */
+.audit-row {
+  pointer-events: none;
+  user-select: text;
 }

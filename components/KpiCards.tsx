@@ -1,0 +1,109 @@
+"use client";
+
+import { kpiData, formatCompact } from "@/lib/data";
+import {
+    HiOutlineBanknotes,
+    HiOutlineDocumentCheck,
+    HiOutlineCreditCard,
+    HiOutlineScale,
+    HiOutlineChartBarSquare,
+} from "react-icons/hi2";
+
+interface KpiCardProps {
+    label: string;
+    value: string;
+    trend: number;
+    icon: React.ReactNode;
+    prefix?: string;
+    suffix?: string;
+}
+
+function KpiCard({ label, value, trend, icon, prefix = "", suffix = "" }: KpiCardProps) {
+    const isPositive = trend > 0;
+    const isNeutral = trend === 0;
+
+    return (
+        <div className="rounded-xl border border-gray-200 bg-white p-5">
+            <div className="mb-3 flex items-center justify-between">
+                <span className="text-sm font-medium text-gray-500">{label}</span>
+                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#e8eef8] text-[#0645ba]">
+                    {icon}
+                </div>
+            </div>
+            <div className="mb-1 text-2xl font-bold text-[#0645ba]">
+                {prefix}{value}{suffix}
+            </div>
+            <div className="flex items-center gap-1 text-xs">
+                {!isNeutral && (
+                    <span
+                        className={`inline-flex items-center rounded-full px-2 py-0.5 font-medium ${isPositive
+                                ? "bg-emerald-50 text-emerald-700"
+                                : "bg-red-50 text-red-700"
+                            }`}
+                    >
+                        {isPositive ? "↑" : "↓"} {Math.abs(trend).toFixed(1)}%
+                    </span>
+                )}
+                {isNeutral && (
+                    <span className="inline-flex items-center rounded-full bg-gray-100 px-2 py-0.5 font-medium text-gray-500">
+                        — 0%
+                    </span>
+                )}
+                <span className="text-gray-400">vs last month</span>
+            </div>
+        </div>
+    );
+}
+
+export default function KpiCards() {
+    const cards: KpiCardProps[] = [
+        {
+            label: "Total Allocated Budget",
+            value: formatCompact(kpiData.totalAllocated),
+            trend: kpiData.trends.allocated,
+            icon: <HiOutlineBanknotes className="h-5 w-5" />,
+            prefix: "ETB ",
+        },
+        {
+            label: "Total Encumbered",
+            value: formatCompact(kpiData.totalEncumbered),
+            trend: kpiData.trends.encumbered,
+            icon: <HiOutlineDocumentCheck className="h-5 w-5" />,
+            prefix: "ETB ",
+        },
+        {
+            label: "Total Expended",
+            value: formatCompact(kpiData.totalExpended),
+            trend: kpiData.trends.expended,
+            icon: <HiOutlineCreditCard className="h-5 w-5" />,
+            prefix: "ETB ",
+        },
+        {
+            label: "Available Balance",
+            value: formatCompact(kpiData.availableBalance),
+            trend: kpiData.trends.available,
+            icon: <HiOutlineScale className="h-5 w-5" />,
+            prefix: "ETB ",
+        },
+        {
+            label: "Budget Utilization Rate",
+            value: kpiData.utilizationRate.toFixed(1),
+            trend: kpiData.trends.utilization,
+            icon: <HiOutlineChartBarSquare className="h-5 w-5" />,
+            suffix: "%",
+        },
+    ];
+
+    return (
+        <section>
+            <h2 className="mb-4 text-lg font-semibold text-gray-900">
+                Financial Overview
+            </h2>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
+                {cards.map((c) => (
+                    <KpiCard key={c.label} {...c} />
+                ))}
+            </div>
+        </section>
+    );
+}

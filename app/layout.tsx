@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Fira_Sans } from "next/font/google";
+import Navbar from "@/components/Navbar";
+import Sidebar from "@/components/Sidebar";
 import "./globals.css";
 
 const firaSans = Fira_Sans({
@@ -22,8 +24,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${firaSans.variable} light`}>
-      <body className="min-h-screen bg-gray-50 font-sans antialiased" style={{ fontFamily: "'Fira Sans', sans-serif" }}>
-        {children}
+      <body className="min-h-screen font-sans antialiased overflow-hidden" style={{ fontFamily: "'Fira Sans', sans-serif" }}>
+        <div className="flex h-screen flex-col overflow-hidden">
+          {/* Global Top Navigation */}
+          <Navbar />
+
+          <div className="flex flex-1 overflow-hidden">
+            {/* Global Left Sidebar */}
+            <Sidebar />
+
+            {/* Dynamic Page Content Area */}
+            <div className="flex-1 flex flex-col min-w-0">
+              {children}
+            </div>
+          </div>
+        </div>
       </body>
     </html>
   );

@@ -88,7 +88,7 @@ export default function SankeyDiagram() {
     const { nodes } = buildVerticalLayout(svgW, svgH);
 
     return (
-        <div className="rounded-xl border border-gray-200 bg-white p-6">
+        <div className="surface-panel p-6">
             <div className="mb-4">
                 <h3 className="text-base font-semibold text-gray-900">
                     Fund Flow Traceability

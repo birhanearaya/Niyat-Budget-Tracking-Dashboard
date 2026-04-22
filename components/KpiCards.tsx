@@ -23,7 +23,7 @@ function KpiCard({ label, value, trend, icon, prefix = "", suffix = "" }: KpiCar
     const isNeutral = trend === 0;
 
     return (
-        <div className="rounded-xl border border-gray-200 bg-white p-5">
+        <div className="surface-panel p-5">
             <div className="mb-3 flex items-center justify-between">
                 <span className="text-sm font-medium text-gray-500">{label}</span>
                 <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#e8eef8] text-[#0645ba]">
@@ -96,7 +96,7 @@ export default function KpiCards() {
 
     return (
         <section>
-            <h2 className="mb-4 text-lg font-semibold text-gray-900">
+            <h2 className="section-title mb-4 text-lg">
                 Financial Overview
             </h2>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">

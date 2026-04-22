@@ -9,16 +9,28 @@ import {
     Tooltip,
     ResponsiveContainer,
     Legend,
-    Cell,
 } from "recharts";
 import { sectorData, formatCompact, formatETB } from "@/lib/data";
 
-const CustomTooltip = ({ active, payload, label }: any) => {
+type ChartTooltipEntry = {
+    dataKey: string;
+    color: string;
+    name: string;
+    value: number;
+};
+
+interface CustomTooltipProps {
+    active?: boolean;
+    payload?: ChartTooltipEntry[];
+    label?: string;
+}
+
+const CustomTooltip = ({ active, payload, label }: CustomTooltipProps) => {
     if (!active || !payload) return null;
     return (
         <div className="rounded-lg border border-gray-200 bg-white px-4 py-3 shadow-sm">
             <p className="mb-1 text-sm font-medium text-gray-900">{label}</p>
-            {payload.map((entry: any) => (
+            {payload.map((entry) => (
                 <p key={entry.dataKey} className="text-xs text-gray-600">
                     <span
                         className="mr-2 inline-block h-2 w-2 rounded-full"
@@ -33,7 +45,7 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 
 export default function SectorBarChart() {
     return (
-        <div className="rounded-xl border border-gray-200 bg-white p-6">
+        <div className="surface-panel p-6">
             <div className="mb-6">
                 <h3 className="text-base font-semibold text-gray-900">
                     Sector-wise Distribution

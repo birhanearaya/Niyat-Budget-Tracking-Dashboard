@@ -2,7 +2,7 @@
 
 /* ============================================================
    Budget Tracking Dashboard — Global Styles
-   Light-mode only. No gradients. Flat design.
+   Professional light-only design system
    ============================================================ */
 
 @theme inline {
@@ -15,6 +15,8 @@
   --color-foreground: #111827;
   --color-muted: #6b7280;
   --color-border: #e5e7eb;
+  --color-soft-surface: #f8fafc;
+  --color-ring: #1d4ed8;
   --font-sans: "Fira Sans", ui-sans-serif, system-ui, sans-serif;
 }
 
@@ -24,7 +26,7 @@ html {
 }
 
 body {
-  background-color: var(--color-surface);
+  background-color: #f3f6fb;
   color: var(--color-foreground);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
@@ -41,7 +43,7 @@ body {
 .shadow-lg,
 .shadow-xl,
 .shadow-2xl {
-  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.04) !important;
+  box-shadow: 0 2px 10px rgb(15 23 42 / 0.05) !important;
 }
 
 /* ---- No gradients on buttons ---- */
@@ -49,6 +51,61 @@ button,
 .btn,
 [class*="btn-"] {
   background-image: none !important;
+}
+
+/* ---- Global controls ---- */
+input,
+select,
+textarea {
+  border-radius: 0.75rem;
+  border-color: #dbe3ef !important;
+  background-color: #fff !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+  border-color: #c6d3e6 !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--color-ring) !important;
+  box-shadow: 0 0 0 3px rgb(29 78 216 / 0.12) !important;
+  outline: none !important;
+}
+
+button {
+  transition: all 0.2s ease;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+  border-radius: 0.5rem;
+}
+
+/* ---- Shared surfaces ---- */
+.surface-panel {
+  border: 1px solid #dde5f0;
+  background: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 6px 20px rgb(15 23 42 / 0.04);
+}
+
+.soft-panel {
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  border-radius: 0.875rem;
+}
+
+.section-title {
+  color: #0f172a;
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
 /* ---- Scrollbar ---- */

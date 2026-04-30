@@ -21,7 +21,7 @@ type ColKey = (typeof ALL_COLUMNS)[number]["key"];
 
 const statusColors: Record<Transaction["status"], string> = {
     Approved: "bg-emerald-50 text-emerald-700",
-    Encumbered: "bg-gray-100 text-[#1B2A4A]",
+    Reserved: "bg-gray-100 text-[#1B2A4A]",
     Pending: "bg-amber-50 text-amber-700",
     Rejected: "bg-red-50 text-red-700",
     Settled: "bg-blue-50 text-blue-800",
@@ -29,10 +29,10 @@ const statusColors: Record<Transaction["status"], string> = {
 };
 
 const typeColors: Record<Transaction["type"], string> = {
-    Allocation: "text-emerald-700",
-    Encumbrance: "text-[#1B2A4A]",
+    Plan: "text-emerald-700",
+    Reservation: "text-[#1B2A4A]",
     Reversal: "text-gray-500",
-    Expenditure: "text-blue-800",
+    Spend: "text-blue-800",
 };
 
 export default function TransactionTable() {
@@ -70,7 +70,7 @@ export default function TransactionTable() {
         <section>
             <div className="mb-4 flex items-center justify-between">
                 <h2 className="text-lg font-semibold text-gray-900">
-                    Transaction &amp; Encumbrance Ledger
+                    Transaction &amp; Reservation Ledger
                 </h2>
             </div>
 

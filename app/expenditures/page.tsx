@@ -18,7 +18,7 @@ export default function ExpendituresPage() {
 
                     <div className="flex flex-col gap-3 border-b border-gray-100 p-4 sm:p-6 lg:flex-row lg:items-center lg:justify-between">
                         <div>
-                            <h2 className="text-xl font-bold text-gray-900">Historical Disbursements & Expenditures</h2>
+                            <h2 className="text-xl font-bold text-gray-900">Historical Disbursements & Spend</h2>
                             <p className="text-sm text-gray-500 mt-1">Unified view of fully approved payments leaving the general ledger.</p>
                         </div>
                         <div className="flex items-center gap-3">

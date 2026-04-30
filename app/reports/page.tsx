@@ -31,7 +31,7 @@ export default function ReportsPage() {
                             { id: "budget_summary", name: "Adjusted Budget Summary", icon: HiOutlineChartBar },
                             { id: "trial_balance", name: "Monthly Trial Balance", icon: HiOutlineArrowsRightLeft },
                             { id: "transaction_detail", name: "Transaction Detail", icon: HiOutlineDocumentText },
-                            { id: "utilization", name: "Budget Utilization", icon: HiOutlineCheckCircle },
+                            { id: "utilization", name: "Budget Execution", icon: HiOutlineCheckCircle },
                         ].map((tab) => {
                             const isActive = activeTab === tab.id;
                             const Icon = tab.icon;
@@ -193,7 +193,7 @@ function BudgetUtilizationView() {
     ];
     return (
         <div className="p-4 sm:p-6">
-            <h3 className="text-lg font-semibold text-gray-800 mb-4">Budget Utilization & Commitment Status</h3>
+            <h3 className="text-lg font-semibold text-gray-800 mb-4">Budget Execution & Commitment Status</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {mockData.map((row, idx) => {
                     const commitPercent = (row.committed / row.allocated) * 100;
@@ -211,7 +211,7 @@ function BudgetUtilizationView() {
 
                             <div>
                                 <div className="flex justify-between text-sm mb-1.5">
-                                    <span className="text-gray-500">Committed (Encumbered)</span>
+                                    <span className="text-gray-500">Committed (Reserved)</span>
                                     <span className="font-medium text-[#1B2A4A]">{commitPercent.toFixed(0)}%</span>
                                 </div>
                                 <div className="w-full bg-gray-100 rounded-full h-2">
@@ -221,7 +221,7 @@ function BudgetUtilizationView() {
 
                             <div>
                                 <div className="flex justify-between text-sm mb-1.5">
-                                    <span className="text-gray-500">Actual Utilized</span>
+                                    <span className="text-gray-500">Actual Executed</span>
                                     <span className="font-medium text-emerald-600">{utilizePercent.toFixed(0)}%</span>
                                 </div>
                                 <div className="w-full bg-gray-100 rounded-full h-2">

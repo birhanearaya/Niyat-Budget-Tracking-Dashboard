@@ -12,14 +12,14 @@ export default function SubCityBreakdown() {
                     Sub-City Budget Overview
                 </h3>
                 <p className="text-sm text-gray-500">
-                    Allocation vs utilization across administrative sub-cities
+                    Plan vs utilization across administrative sub-cities
                 </p>
             </div>
             {/* Legend */}
             <div className="flex items-center gap-6 mb-4">
                 <div className="flex items-center gap-2">
                     <div className="h-3 w-8 rounded-sm bg-[#1B2A4A]" />
-                    <span className="text-xs text-gray-500">Utilized</span>
+                    <span className="text-xs text-gray-500">Executed</span>
                 </div>
                 <div className="flex items-center gap-2">
                     <div className="h-3 w-8 rounded-sm bg-[#D4923A]/30" />
@@ -42,7 +42,7 @@ export default function SubCityBreakdown() {
                                     className="h-6 rounded bg-[#D4923A]/20 relative overflow-hidden"
                                     style={{ width: `${barWidth}%` }}
                                 >
-                                    {/* Utilized portion */}
+                                    {/* Executed portion */}
                                     <div
                                         className="absolute inset-y-0 left-0 rounded-l bg-[#1B2A4A]"
                                         style={{ width: `${pctUtilized}%` }}

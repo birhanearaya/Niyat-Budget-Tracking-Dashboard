@@ -17,7 +17,7 @@ export default function ObjectCodeBreakdown() {
         <div className="surface-panel p-6">
             <div className="mb-4">
                 <h3 className="text-base font-semibold text-gray-900">
-                    Expenditure by Object Code
+                    Spend by Object Code
                 </h3>
                 <p className="text-sm text-gray-500">
                     Spending distribution across budget categories

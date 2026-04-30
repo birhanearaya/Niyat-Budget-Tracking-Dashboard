@@ -90,7 +90,7 @@ export default function BurnDownChart() {
                         <Area
                             type="monotone"
                             dataKey="expended"
-                            name="Expended"
+                            name="Spent"
                             stackId="1"
                             fill="#1B2A4A"
                             fillOpacity={0.85}
@@ -100,7 +100,7 @@ export default function BurnDownChart() {
                         <Area
                             type="monotone"
                             dataKey="encumbered"
-                            name="Encumbered"
+                            name="Reserved"
                             stackId="1"
                             fill="#D4923A"
                             fillOpacity={0.3}

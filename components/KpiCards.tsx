@@ -59,21 +59,21 @@ function KpiCard({ label, value, trend, icon, prefix = "", suffix = "" }: KpiCar
 export default function KpiCards() {
     const cards: KpiCardProps[] = [
         {
-            label: "Total Allocated Budget",
+            label: "Total Planned Budget",
             value: formatCompact(kpiData.totalAllocated),
             trend: kpiData.trends.allocated,
             icon: <HiOutlineBanknotes className="h-5 w-5" />,
             prefix: "ETB ",
         },
         {
-            label: "Total Encumbered",
+            label: "Reserved Funds",
             value: formatCompact(kpiData.totalEncumbered),
             trend: kpiData.trends.encumbered,
             icon: <HiOutlineDocumentCheck className="h-5 w-5" />,
             prefix: "ETB ",
         },
         {
-            label: "Total Expended",
+            label: "Total Spent",
             value: formatCompact(kpiData.totalExpended),
             trend: kpiData.trends.expended,
             icon: <HiOutlineCreditCard className="h-5 w-5" />,
@@ -87,7 +87,7 @@ export default function KpiCards() {
             prefix: "ETB ",
         },
         {
-            label: "Budget Utilization Rate",
+            label: "Budget Execution Rate",
             value: kpiData.utilizationRate.toFixed(1),
             trend: kpiData.trends.utilization,
             icon: <HiOutlineChartBarSquare className="h-5 w-5" />,

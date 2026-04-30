@@ -21,9 +21,9 @@ import {
 
 const navItems = [
     { name: "Dashboard", href: "/", icon: HiOutlineSquares2X2 },
-    { name: "Budget Allocation", href: "/allocations", icon: HiOutlineBanknotes },
+    { name: "Budget Plan", href: "/allocations", icon: HiOutlineBanknotes },
     { name: "Encumbrances", href: "/encumbrances", icon: HiOutlineLockClosed, hasSubmenu: true },
-    { name: "Expenditures", href: "/expenditures", icon: HiOutlineCreditCard, hasSubmenu: true },
+    { name: "Spend", href: "/expenditures", icon: HiOutlineCreditCard, hasSubmenu: true },
     { name: "Transfers & Adjust", href: "/transfers", icon: HiOutlineArrowsRightLeft },
     { name: "Transactions Ledger", href: "/transactions", icon: HiOutlineQueueList },
     { name: "Alert Center", href: "/alerts", icon: HiOutlineShieldExclamation },

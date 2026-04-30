@@ -48,7 +48,7 @@ export default function RecurrentVsCapital() {
         <div className="surface-panel p-6">
             <div className="mb-6">
                 <h3 className="text-base font-semibold text-gray-900">
-                    Recurrent vs Capital Expenditure
+                    Recurrent vs Capital Spend
                 </h3>
                 <p className="text-sm text-gray-500">
                     Cumulative spending by expenditure type — FY 2025/26

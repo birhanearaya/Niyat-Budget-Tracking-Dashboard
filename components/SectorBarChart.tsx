@@ -90,7 +90,7 @@ export default function SectorBarChart() {
                         />
                         <Bar
                             dataKey="utilized"
-                            name="Utilized"
+                            name="Executed"
                             fill="#1B2A4A"
                             radius={[0, 4, 4, 0]}
                             barSize={18}

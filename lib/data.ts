@@ -163,7 +163,7 @@ export const alertsData: Alert[] = [
         type: "hard-stop",
         title: "Transaction Rejected — Insufficient Balance",
         description:
-            "Encumbrance request for Yeka Sub City Health Program was blocked. Budget ceiling reached for Object Code 6211.",
+            "Reservation request for Yeka Sub City Health Program was blocked. Budget ceiling reached for Object Code 6211.",
         timestamp: "2026-04-21 16:42:10",
         traceabilityId: "AA/HLT/YEKA/6211",
         amount: 5_800_000,
@@ -196,8 +196,8 @@ export interface Transaction {
     traceabilityId: string;
     department: string;
     amount: number;
-    type: "Allocation" | "Encumbrance" | "Reversal" | "Expenditure";
-    status: "Approved" | "Encumbered" | "Pending" | "Rejected" | "Settled" | "Reversed";
+    type: "Plan" | "Reservation" | "Reversal" | "Spend";
+    status: "Approved" | "Reserved" | "Pending" | "Rejected" | "Settled" | "Reversed";
 }
 
 export const transactionsData: Transaction[] = [
@@ -207,7 +207,7 @@ export const transactionsData: Transaction[] = [
         traceabilityId: "AA/EDU/BOLE/6111",
         department: "Bole Sub City — Education Office",
         amount: 45_000_000,
-        type: "Allocation",
+        type: "Plan",
         status: "Approved",
     },
     {
@@ -216,7 +216,7 @@ export const transactionsData: Transaction[] = [
         traceabilityId: "AA/EDU/BOLE/6111",
         department: "Bole Sub City — Education Office",
         amount: 12_500_000,
-        type: "Encumbrance",
+        type: "Reservation",
         status: "Rejected",
     },
     {
@@ -225,7 +225,7 @@ export const transactionsData: Transaction[] = [
         traceabilityId: "AA/HLT/KIRKOS/6211",
         department: "Kirkos Sub City — Health Center",
         amount: 28_300_000,
-        type: "Expenditure",
+        type: "Spend",
         status: "Settled",
     },
     {
@@ -234,7 +234,7 @@ export const transactionsData: Transaction[] = [
         traceabilityId: "AA/HLT/YEKA/6211",
         department: "Yeka Sub City — Health Program",
         amount: 5_800_000,
-        type: "Encumbrance",
+        type: "Reservation",
         status: "Rejected",
     },
     {
@@ -243,8 +243,8 @@ export const transactionsData: Transaction[] = [
         traceabilityId: "AA/RDS/ARADA/6231",
         department: "Arada Sub City — Roads Maintenance",
         amount: 88_000_000,
-        type: "Encumbrance",
-        status: "Encumbered",
+        type: "Reservation",
+        status: "Reserved",
     },
     {
         id: "TXN-10006",
@@ -252,7 +252,7 @@ export const transactionsData: Transaction[] = [
         traceabilityId: "AA/RDS/LIDETA/6231",
         department: "Lideta Sub City — Road Projects",
         amount: 15_200_000,
-        type: "Expenditure",
+        type: "Spend",
         status: "Settled",
     },
     {
@@ -270,7 +270,7 @@ export const transactionsData: Transaction[] = [
         traceabilityId: "AA/TRD/KOLFE/6311",
         department: "Kolfe Keranio — Trade & Market Dev.",
         amount: 32_000_000,
-        type: "Allocation",
+        type: "Plan",
         status: "Approved",
     },
     {
@@ -279,8 +279,8 @@ export const transactionsData: Transaction[] = [
         traceabilityId: "AA/HLT/BOLE/6211",
         department: "Bole Sub City — Health Bureau",
         amount: 18_500_000,
-        type: "Encumbrance",
-        status: "Encumbered",
+        type: "Reservation",
+        status: "Reserved",
     },
     {
         id: "TXN-10010",
@@ -288,7 +288,7 @@ export const transactionsData: Transaction[] = [
         traceabilityId: "AA/EDU/ARADA/6111",
         department: "Arada Sub City — Education Office",
         amount: 72_000_000,
-        type: "Expenditure",
+        type: "Spend",
         status: "Settled",
     },
     {
@@ -297,7 +297,7 @@ export const transactionsData: Transaction[] = [
         traceabilityId: "AA/TRD/LIDETA/6311",
         department: "Lideta Sub City — Market Development",
         amount: 9_400_000,
-        type: "Encumbrance",
+        type: "Reservation",
         status: "Pending",
     },
     {
@@ -306,7 +306,7 @@ export const transactionsData: Transaction[] = [
         traceabilityId: "AA/RDS/KIRKOS/6231",
         department: "Kirkos Sub City — Road Maintenance",
         amount: 22_000_000,
-        type: "Expenditure",
+        type: "Spend",
         status: "Settled",
     },
     {
@@ -315,7 +315,7 @@ export const transactionsData: Transaction[] = [
         traceabilityId: "AA/EDU/KOLFE/6111",
         department: "Kolfe Keranio — Education Office",
         amount: 35_000_000,
-        type: "Allocation",
+        type: "Plan",
         status: "Approved",
     },
     {
@@ -333,8 +333,8 @@ export const transactionsData: Transaction[] = [
         traceabilityId: "AA/RDS/BOLE/6231",
         department: "Bole Sub City — Urban Transport",
         amount: 41_000_000,
-        type: "Encumbrance",
-        status: "Encumbered",
+        type: "Reservation",
+        status: "Reserved",
     },
 ];
 
@@ -496,7 +496,7 @@ export const quarterlyData = [
     { quarter: "Q4", allocated: 612_500_000, encumbered: 42_600_000, expended: 164_400_000, target: 490_000_000 },
 ];
 
-// ---- Project-Level Utilization ----
+// ---- Project-Level Execution ----
 export const projectUtilizationData = [
     { project: "School Construction", budget: 280_000_000, spent: 224_000_000 },
     { project: "Primary Healthcare", budget: 210_000_000, spent: 155_400_000 },
@@ -525,7 +525,7 @@ export const priorYearComparison = [
     { sector: "Revenue", currentYear: 200_000_000, priorYear: 180_000_000 },
 ];
 
-// ---- Expenditure by Object Code ----
+// ---- Spend by Object Code ----
 export const objectCodeExpenditure = [
     { code: "6111 — Salaries", amount: 515_000_000, percentage: 40 },
     { code: "6211 — Supplies", amount: 322_000_000, percentage: 25 },
@@ -538,8 +538,8 @@ export const systemHealth = {
     complianceScore: 94.2,
     pendingApprovals: 8,
     activePurchaseOrders: 42,
-    fiscalYearRisk: "Moderate" as const,
-    cashAvailabilityStatus: "Healthy" as const,
+    fiscalYearRisk: "Moderate" as "Low" | "Moderate" | "High",
+    cashAvailabilityStatus: "Healthy" as "Healthy" | "At Risk" | "Critical",
     cashAvailabilityTrend: -0.5,
     commitmentRate: 68.5,
     commitmentTrend: +2.1,
@@ -549,7 +549,7 @@ export const systemHealth = {
     monthlyTransactionVolume: 156,
 };
 
-// ---- Monthly Expenditure by Category ----
+// ---- Monthly Spend by Category ----
 export const monthlyExpenditureByCategory = [
     { month: "Jul", recurrent: 48_000_000, capital: 20_000_000 },
     { month: "Aug", recurrent: 82_000_000, capital: 43_000_000 },

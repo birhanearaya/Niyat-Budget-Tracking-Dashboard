@@ -29,7 +29,7 @@ const mockNotifications = [
     },
     {
         id: 2,
-        title: "Encumbrance Approved",
+        title: "Reservation Approved",
         message: "PO-2025-8910 (Health Sub-City) has been successfully committed.",
         time: "1 hour ago",
         icon: HiOutlineCheckCircle,
@@ -39,7 +39,7 @@ const mockNotifications = [
     {
         id: 3,
         title: "Fund Adjustment Request",
-        message: "Pending authorization for transfer of ETB 10M to Capital Expenditures.",
+        message: "Pending authorization for transfer of ETB 10M to Capital Spend.",
         time: "3 hours ago",
         icon: HiOutlineLockClosed,
         color: "text-yellow-600",
@@ -52,9 +52,9 @@ export default function Navbar() {
     const currentLabel = useMemo(() => {
         const map: Record<string, string> = {
             "/": "Dashboard",
-            "/allocations": "Budget Allocation",
+            "/allocations": "Budget Plan",
             "/encumbrances": "Encumbrances",
-            "/expenditures": "Expenditures",
+            "/expenditures": "Spend",
             "/transfers": "Transfers & Adjustments",
             "/transactions": "Transactions Ledger",
             "/alerts": "Alert Center",
@@ -170,9 +170,9 @@ export default function Navbar() {
                         <span className="block text-sm font-semibold text-gray-900">Budgets Menu</span>
                     </DropdownHeader>
                     <DropdownItem as={Link} href="/">Dashboard</DropdownItem>
-                    <DropdownItem as={Link} href="/allocations">Budget Allocation</DropdownItem>
+                    <DropdownItem as={Link} href="/allocations">Budget Plan</DropdownItem>
                     <DropdownItem as={Link} href="/encumbrances">Encumbrances</DropdownItem>
-                    <DropdownItem as={Link} href="/expenditures">Expenditures</DropdownItem>
+                    <DropdownItem as={Link} href="/expenditures">Spend</DropdownItem>
                     <DropdownItem as={Link} href="/transfers">Transfers &amp; Adjust</DropdownItem>
                     <DropdownItem as={Link} href="/transactions">Transactions Ledger</DropdownItem>
                     <DropdownItem as={Link} href="/alerts">Alert Center</DropdownItem>

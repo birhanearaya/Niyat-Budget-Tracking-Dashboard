@@ -61,7 +61,7 @@ export default function QuarterlyComparison() {
                         />
                         <Tooltip
                             formatter={(value, name) =>
-                                name === "Utilization %"
+                                name === "Execution %"
                                     ? `${Number(value ?? 0).toFixed(1)}%`
                                     : `ETB ${formatETB(Number(value ?? 0))}`
                             }
@@ -70,7 +70,7 @@ export default function QuarterlyComparison() {
                         <Bar
                             yAxisId="amount"
                             dataKey="expended"
-                            name="Expended"
+                            name="Spent"
                             fill="#1B2A4A"
                             radius={[6, 6, 0, 0]}
                             barSize={22}
@@ -78,7 +78,7 @@ export default function QuarterlyComparison() {
                         <Bar
                             yAxisId="amount"
                             dataKey="encumbered"
-                            name="Encumbered"
+                            name="Reserved"
                             fill="#D4923A"
                             radius={[6, 6, 0, 0]}
                             barSize={22}
@@ -97,7 +97,7 @@ export default function QuarterlyComparison() {
                             yAxisId="rate"
                             type="monotone"
                             dataKey="utilization"
-                            name="Utilization %"
+                            name="Execution %"
                             stroke="#1B2A4A"
                             strokeWidth={2}
                             dot={{ fill: "#1B2A4A", r: 4 }}

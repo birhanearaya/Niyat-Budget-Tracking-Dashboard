@@ -17,8 +17,8 @@ import {
 import { burnDownData, kpiData, formatCompact, formatETB } from "@/lib/data";
 
 const utilizationData = [
-    { name: "Expended", value: kpiData.totalExpended, color: "#1B2A4A" },
-    { name: "Encumbered", value: kpiData.totalEncumbered, color: "#D4923A" },
+    { name: "Spent", value: kpiData.totalExpended, color: "#1B2A4A" },
+    { name: "Reserved", value: kpiData.totalEncumbered, color: "#D4923A" },
     { name: "Available", value: kpiData.availableBalance, color: "#D4923A40" },
 ];
 
@@ -53,7 +53,7 @@ export default function ComparativeCharts() {
 
             <div className="surface-panel p-5 xl:col-span-2">
                 <h3 className="text-base font-semibold text-slate-900">Monthly Comparative Trend</h3>
-                <p className="mb-4 text-sm text-slate-500">Expended vs encumbered with cumulative utilization rate</p>
+                <p className="mb-4 text-sm text-slate-500">Spent vs encumbered with cumulative utilization rate</p>
                 <div className="h-[280px]">
                     <ResponsiveContainer width="100%" height="100%">
                         <ComposedChart data={monthlyComparison} margin={{ top: 10, right: 16, left: 4, bottom: 0 }}>
@@ -69,15 +69,15 @@ export default function ComparativeCharts() {
                             <YAxis yAxisId="rate" orientation="right" tickFormatter={(v: number) => `${v.toFixed(0)}%`} tickLine={false} axisLine={false} width={44} />
                             <Tooltip
                                 formatter={(value, name) =>
-                                    name === "Utilization Rate"
+                                    name === "Execution Rate"
                                         ? `${Number(value ?? 0).toFixed(2)}%`
                                         : `ETB ${formatETB(Number(value ?? 0))}`
                                 }
                             />
                             <Legend verticalAlign="top" align="right" wrapperStyle={{ fontSize: 12 }} />
-                            <Bar yAxisId="amount" dataKey="expended" name="Expended" fill="#1B2A4A" radius={[6, 6, 0, 0]} barSize={18} />
-                            <Bar yAxisId="amount" dataKey="encumbered" name="Encumbered" fill="#D4923A" radius={[6, 6, 0, 0]} barSize={18} />
-                            <Line yAxisId="rate" dataKey="utilizationRate" name="Utilization Rate" stroke="#1B2A4A" strokeWidth={2} dot={false} />
+                            <Bar yAxisId="amount" dataKey="expended" name="Spent" fill="#1B2A4A" radius={[6, 6, 0, 0]} barSize={18} />
+                            <Bar yAxisId="amount" dataKey="encumbered" name="Reserved" fill="#D4923A" radius={[6, 6, 0, 0]} barSize={18} />
+                            <Line yAxisId="rate" dataKey="utilizationRate" name="Execution Rate" stroke="#1B2A4A" strokeWidth={2} dot={false} />
                         </ComposedChart>
                     </ResponsiveContainer>
                 </div>

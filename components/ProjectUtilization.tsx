@@ -7,7 +7,7 @@ export default function ProjectUtilization() {
         <div className="surface-panel p-6">
             <div className="mb-5">
                 <h3 className="text-base font-semibold text-gray-900">
-                    Budget Utilization by Project
+                    Budget Execution by Project
                 </h3>
                 <p className="text-sm text-gray-500">
                     Spending progress against allocated project budgets

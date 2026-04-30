@@ -60,7 +60,7 @@ export default function EncumbrancesPage() {
                                 <TableHeadCell className="font-semibold text-gray-600 tracking-wider">Purchase Order / Contract</TableHeadCell>
                                 <TableHeadCell className="font-semibold text-gray-600 tracking-wider">Sector Bureau</TableHeadCell>
                                 <TableHeadCell className="font-semibold text-gray-600 tracking-wider text-right">Commitment Amount</TableHeadCell>
-                                <TableHeadCell className="font-semibold text-gray-600 tracking-wider text-right">Available Allocation Left</TableHeadCell>
+                                <TableHeadCell className="font-semibold text-gray-600 tracking-wider text-right">Available Plan Left</TableHeadCell>
                                 <TableHeadCell className="font-semibold text-gray-600 tracking-wider text-center">Verification</TableHeadCell>
                                 <TableHeadCell className="font-semibold text-gray-600 tracking-wider text-right">Actions</TableHeadCell>
                             </TableHead>
@@ -111,11 +111,11 @@ export default function EncumbrancesPage() {
                     <div className="space-y-6">
                         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                             <div className="bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
-                                <p className="text-xs text-gray-400 mb-1">Requested Encumbrance</p>
+                                <p className="text-xs text-gray-400 mb-1">Requested Reservation</p>
                                 <p className="text-xl font-bold text-gray-900">ETB {selectedAmount.toLocaleString()}</p>
                             </div>
                             <div className="bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
-                                <p className="text-xs text-gray-400 mb-1">Remaining Valid Allocation</p>
+                                <p className="text-xs text-gray-400 mb-1">Remaining Valid Plan</p>
                                 <p className={`text-xl font-bold ${isOverLimit ? 'text-red-500' : 'text-[#1B2A4A]'}`}>
                                     ETB {selectedAvailable.toLocaleString()}
                                 </p>

@@ -16,6 +16,9 @@ import ControlAlertPanel from "@/components/ControlAlertPanel";
 import AlertCenter from "@/components/AlertCenter";
 import TransactionTable from "@/components/TransactionTable";
 import AuditLog from "@/components/AuditLog";
+import PlanVsExecutionSector from "@/components/PlanVsExecutionSector";
+import PlanVsExecutionSubCity from "@/components/PlanVsExecutionSubCity";
+import PlanVsExecutionObjectCode from "@/components/PlanVsExecutionObjectCode";
 
 export default function DashboardPage() {
   return (
@@ -42,7 +45,7 @@ export default function DashboardPage() {
           <section>
             <div className="mb-4 flex items-center justify-between">
               <h2 className="section-title text-lg">
-                Allocation &amp; Consumption Analysis
+                Plan &amp; Consumption Analysis
               </h2>
             </div>
             <div className="grid grid-cols-1 gap-6 xl:grid-cols-2">
@@ -51,7 +54,22 @@ export default function DashboardPage() {
             </div>
           </section>
 
-          {/* Section 4: Comparative Analytics — Year-over-Year & Quarterly */}
+          {/* Section 4: Plan vs Execution (Detailed Comparisons) */}
+          <section>
+            <div className="mb-4 flex items-center justify-between">
+              <h2 className="section-title text-lg">Plan vs Execution Status</h2>
+            </div>
+            <div className="grid grid-cols-1 gap-6 xl:grid-cols-2 lg:grid-cols-2">
+              <PlanVsExecutionSector />
+              <PlanVsExecutionSubCity />
+            </div>
+            <div className="mt-6 grid grid-cols-1 gap-6 xl:grid-cols-2">
+              <PlanVsExecutionObjectCode />
+              {/* Could place another chart here, or stretch out the ObjectCode chart. We'll use a single column full width */}
+            </div>
+          </section>
+
+          {/* Section 5: Comparative Analytics — Year-over-Year & Quarterly */}
           <section>
             <div className="mb-4 flex items-center justify-between">
               <h2 className="section-title text-lg">Comparative Analytics</h2>
@@ -62,10 +80,10 @@ export default function DashboardPage() {
             </div>
           </section>
 
-          {/* Section 5: Cash Flow & Expenditure Breakdown */}
+          {/* Section 5: Cash Flow & Spend Breakdown */}
           <section>
             <div className="mb-4 flex items-center justify-between">
-              <h2 className="section-title text-lg">Cash Flow &amp; Expenditure</h2>
+              <h2 className="section-title text-lg">Cash Flow &amp; Spend</h2>
             </div>
             <div className="grid grid-cols-1 gap-6 xl:grid-cols-2">
               <CashFlowTrend />
@@ -73,10 +91,10 @@ export default function DashboardPage() {
             </div>
           </section>
 
-          {/* Section 6: Composition & Utilization Detail */}
+          {/* Section 6: Composition & Execution Detail */}
           <section>
             <div className="mb-4 flex items-center justify-between">
-              <h2 className="section-title text-lg">Budget Composition &amp; Utilization</h2>
+              <h2 className="section-title text-lg">Budget Composition &amp; Execution</h2>
             </div>
             <ComparativeCharts />
             <div className="mt-6 grid grid-cols-1 gap-6 xl:grid-cols-2">

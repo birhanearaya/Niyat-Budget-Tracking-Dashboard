@@ -63,7 +63,7 @@ export default function AllocationsPage() {
                                 <TableHeadCell className="font-semibold text-gray-600 tracking-wider">Sector Bureau</TableHeadCell>
                                 <TableHeadCell className="font-semibold text-gray-600 tracking-wider">Sub City</TableHeadCell>
                                 <TableHeadCell className="font-semibold text-gray-600 tracking-wider">Program / Project</TableHeadCell>
-                                <TableHeadCell className="font-semibold text-gray-600 tracking-wider text-right">Allocated Limit (ETB)</TableHeadCell>
+                                <TableHeadCell className="font-semibold text-gray-600 tracking-wider text-right">Planned Limit (ETB)</TableHeadCell>
                                 <TableHeadCell className="font-semibold text-gray-600 tracking-wider text-right">Unallocated Balance</TableHeadCell>
                                 <TableHeadCell className="font-semibold text-gray-600 tracking-wider text-center">Status</TableHeadCell>
                                 <TableHeadCell className="font-semibold text-gray-600 tracking-wider text-right">Actions</TableHeadCell>
@@ -109,7 +109,7 @@ export default function AllocationsPage() {
             {/* Interactive Edit Modal Mockup */}
             <Modal show={isModalOpen} onClose={() => setIsModalOpen(false)} size="md">
                 <ModalHeader className="border-b border-gray-100">
-                    <span className="text-lg font-bold text-gray-900">Adjust Allocation Limit</span>
+                    <span className="text-lg font-bold text-gray-900">Adjust Plan Limit</span>
                 </ModalHeader>
                 <ModalBody className="bg-gray-50/50">
                     <div className="space-y-5">
@@ -119,7 +119,7 @@ export default function AllocationsPage() {
                         </div>
 
                         <div className="bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
-                            <p className="text-xs text-gray-400 mb-1">Current Allocated Ceiling</p>
+                            <p className="text-xs text-gray-400 mb-1">Current Planned Ceiling</p>
                             <p className="text-xl font-bold text-[#1B2A4A]">ETB {selectedAllocation?.allocated.toLocaleString()}</p>
                         </div>
 

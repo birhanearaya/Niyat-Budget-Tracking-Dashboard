@@ -48,7 +48,7 @@ export default function DashboardPage() {
                 Plan &amp; Consumption Analysis
               </h2>
             </div>
-            <div className="grid grid-cols-1 gap-6 xl:grid-cols-2">
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
               <BurnDownChart />
               <SectorBarChart />
             </div>
@@ -59,11 +59,11 @@ export default function DashboardPage() {
             <div className="mb-4 flex items-center justify-between">
               <h2 className="section-title text-lg">Plan vs Execution Status</h2>
             </div>
-            <div className="grid grid-cols-1 gap-6 xl:grid-cols-2 lg:grid-cols-2">
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
               <PlanVsExecutionSector />
               <PlanVsExecutionSubCity />
             </div>
-            <div className="mt-6 grid grid-cols-1 gap-6 xl:grid-cols-2">
+            <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-2">
               <PlanVsExecutionObjectCode />
               {/* Could place another chart here, or stretch out the ObjectCode chart. We'll use a single column full width */}
             </div>
@@ -74,7 +74,7 @@ export default function DashboardPage() {
             <div className="mb-4 flex items-center justify-between">
               <h2 className="section-title text-lg">Comparative Analytics</h2>
             </div>
-            <div className="grid grid-cols-1 gap-6 xl:grid-cols-2">
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
               <PriorYearComparison />
               <QuarterlyComparison />
             </div>
@@ -85,7 +85,7 @@ export default function DashboardPage() {
             <div className="mb-4 flex items-center justify-between">
               <h2 className="section-title text-lg">Cash Flow &amp; Spend</h2>
             </div>
-            <div className="grid grid-cols-1 gap-6 xl:grid-cols-2">
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
               <CashFlowTrend />
               <RecurrentVsCapital />
             </div>
@@ -97,7 +97,7 @@ export default function DashboardPage() {
               <h2 className="section-title text-lg">Budget Composition &amp; Execution</h2>
             </div>
             <ComparativeCharts />
-            <div className="mt-6 grid grid-cols-1 gap-6 xl:grid-cols-2">
+            <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-2">
               <ObjectCodeBreakdown />
               <ProjectUtilization />
             </div>
@@ -108,8 +108,8 @@ export default function DashboardPage() {
             <div className="mb-4 flex items-center justify-between">
               <h2 className="section-title text-lg">Administrative Breakdown</h2>
             </div>
-            <div className="grid grid-cols-1 gap-6 xl:grid-cols-3">
-              <div className="xl:col-span-2">
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+              <div className="lg:col-span-2">
                 <SubCityBreakdown />
               </div>
               <ControlAlertPanel />

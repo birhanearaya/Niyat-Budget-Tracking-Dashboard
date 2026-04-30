@@ -41,7 +41,7 @@ export default function ControlBar() {
             <label className="flex cursor-pointer items-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-600">
                 <div className="relative">
                     <input type="checkbox" className="peer sr-only" />
-                    <div className="h-5 w-9 rounded-full bg-slate-300 transition-colors peer-checked:bg-[#0645ba]" />
+                    <div className="h-5 w-9 rounded-full bg-slate-300 transition-colors peer-checked:bg-[#1B2A4A]" />
                     <div className="absolute left-0.5 top-0.5 h-4 w-4 rounded-full bg-white shadow-sm transition-transform peer-checked:translate-x-4" />
                 </div>
                 <span>Year-over-Year</span>

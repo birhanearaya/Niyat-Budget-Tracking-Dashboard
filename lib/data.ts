@@ -472,6 +472,99 @@ export const filterOptions = {
     ],
 };
 
+// ---- Cash Flow Trend Data ----
+export const cashFlowData = [
+    { month: "Jul", inflows: 210_000_000, outflows: 68_000_000 },
+    { month: "Aug", inflows: 195_000_000, outflows: 125_000_000 },
+    { month: "Sep", inflows: 230_000_000, outflows: 210_000_000 },
+    { month: "Oct", inflows: 180_000_000, outflows: 315_000_000 },
+    { month: "Nov", inflows: 250_000_000, outflows: 220_000_000 },
+    { month: "Dec", inflows: 200_000_000, outflows: 180_000_000 },
+    { month: "Jan", inflows: 270_000_000, outflows: 240_000_000 },
+    { month: "Feb", inflows: 220_000_000, outflows: 195_000_000 },
+    { month: "Mar", inflows: 310_000_000, outflows: 280_000_000 },
+    { month: "Apr", inflows: 190_000_000, outflows: 260_000_000 },
+    { month: "May", inflows: 240_000_000, outflows: 210_000_000 },
+    { month: "Jun", inflows: 155_000_000, outflows: 184_400_000 },
+];
+
+// ---- Quarterly Performance Comparison ----
+export const quarterlyData = [
+    { quarter: "Q1", allocated: 612_500_000, encumbered: 145_000_000, expended: 403_000_000, target: 490_000_000 },
+    { quarter: "Q2", allocated: 612_500_000, encumbered: 115_000_000, expended: 380_000_000, target: 490_000_000 },
+    { quarter: "Q3", allocated: 612_500_000, encumbered: 83_000_000, expended: 340_000_000, target: 490_000_000 },
+    { quarter: "Q4", allocated: 612_500_000, encumbered: 42_600_000, expended: 164_400_000, target: 490_000_000 },
+];
+
+// ---- Project-Level Utilization ----
+export const projectUtilizationData = [
+    { project: "School Construction", budget: 280_000_000, spent: 224_000_000 },
+    { project: "Primary Healthcare", budget: 210_000_000, spent: 155_400_000 },
+    { project: "Road Maintenance", budget: 195_000_000, spent: 170_600_000 },
+    { project: "Teacher Training", budget: 160_000_000, spent: 96_000_000 },
+    { project: "Market Development", budget: 125_000_000, spent: 93_750_000 },
+    { project: "Urban Transport", budget: 180_000_000, spent: 108_000_000 },
+];
+
+// ---- Sub-City Budget Distribution ----
+export const subCityData = [
+    { subCity: "Bole", allocated: 520_000_000, utilized: 390_000_000 },
+    { subCity: "Yeka", allocated: 440_000_000, utilized: 308_000_000 },
+    { subCity: "Kirkos", allocated: 380_000_000, utilized: 304_000_000 },
+    { subCity: "Arada", allocated: 350_000_000, utilized: 245_000_000 },
+    { subCity: "Lideta", allocated: 320_000_000, utilized: 224_000_000 },
+    { subCity: "Kolfe Keranio", allocated: 440_000_000, utilized: 264_000_000 },
+];
+
+// ---- Prior Year Comparison ----
+export const priorYearComparison = [
+    { sector: "Education", currentYear: 600_000_000, priorYear: 540_000_000 },
+    { sector: "Health", currentYear: 550_000_000, priorYear: 480_000_000 },
+    { sector: "Trade & Industry", currentYear: 400_000_000, priorYear: 350_000_000 },
+    { sector: "Roads", currentYear: 500_000_000, priorYear: 520_000_000 },
+    { sector: "Revenue", currentYear: 200_000_000, priorYear: 180_000_000 },
+];
+
+// ---- Expenditure by Object Code ----
+export const objectCodeExpenditure = [
+    { code: "6111 — Salaries", amount: 515_000_000, percentage: 40 },
+    { code: "6211 — Supplies", amount: 322_000_000, percentage: 25 },
+    { code: "6231 — Maintenance", amount: 257_400_000, percentage: 20 },
+    { code: "6311 — Grants", amount: 193_000_000, percentage: 15 },
+];
+
+// ---- System Control & Health ----
+export const systemHealth = {
+    complianceScore: 94.2,
+    pendingApprovals: 8,
+    activePurchaseOrders: 42,
+    fiscalYearRisk: "Moderate" as const,
+    cashAvailabilityStatus: "Healthy" as const,
+    cashAvailabilityTrend: -0.5,
+    commitmentRate: 68.5,
+    commitmentTrend: +2.1,
+    budgetAbsorption: 52.5,
+    activeAlerts: 3,
+    rejectedTransactions: 4,
+    monthlyTransactionVolume: 156,
+};
+
+// ---- Monthly Expenditure by Category ----
+export const monthlyExpenditureByCategory = [
+    { month: "Jul", recurrent: 48_000_000, capital: 20_000_000 },
+    { month: "Aug", recurrent: 82_000_000, capital: 43_000_000 },
+    { month: "Sep", recurrent: 135_000_000, capital: 75_000_000 },
+    { month: "Oct", recurrent: 200_000_000, capital: 115_000_000 },
+    { month: "Nov", recurrent: 280_000_000, capital: 160_000_000 },
+    { month: "Dec", recurrent: 350_000_000, capital: 210_000_000 },
+    { month: "Jan", recurrent: 430_000_000, capital: 250_000_000 },
+    { month: "Feb", recurrent: 510_000_000, capital: 300_000_000 },
+    { month: "Mar", recurrent: 600_000_000, capital: 350_000_000 },
+    { month: "Apr", recurrent: 680_000_000, capital: 400_000_000 },
+    { month: "May", recurrent: 740_000_000, capital: 440_000_000 },
+    { month: "Jun", recurrent: 802_000_000, capital: 485_400_000 },
+];
+
 // ---- Helpers ----
 export function formatETB(amount: number): string {
     return new Intl.NumberFormat("en-ET", {

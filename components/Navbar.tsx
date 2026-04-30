@@ -65,22 +65,22 @@ export default function Navbar() {
     }, [pathname]);
 
     return (
-        <nav className="sticky top-0 z-50 flex items-center justify-between border-b border-slate-200 bg-white/95 px-4 py-3 backdrop-blur md:px-6">
+        <nav className="sticky top-0 z-50 flex items-center justify-between border-b border-[#162240] bg-[#1B2A4A] px-4 py-3 backdrop-blur md:px-6">
             {/* Left — Logo & Title */}
             <div className="flex items-center gap-3 md:gap-6">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#0645ba] ring-2 ring-[#e0b700] ring-offset-2">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#D4923A] ring-2 ring-[#D4923A]/40 ring-offset-2 ring-offset-[#1B2A4A]">
                     {/* Mocking the logo from the image */}
                     <div className="flex items-end gap-0.5 mt-1">
-                        <div className="h-4 w-1 bg-[#e0b700]" />
-                        <div className="h-5 w-1 bg-[#e0b700]" />
-                        <div className="h-3 w-1 bg-[#e0b700]" />
+                        <div className="h-4 w-1 bg-white" />
+                        <div className="h-5 w-1 bg-white" />
+                        <div className="h-3 w-1 bg-white" />
                     </div>
                 </div>
 
                 <div className="flex items-center gap-2 md:gap-3">
-                    <HiOutlineSquares2X2 className="hidden h-5 w-5 text-gray-400 sm:block" />
+                    <HiOutlineSquares2X2 className="hidden h-5 w-5 text-slate-400 sm:block" />
                     <div>
-                        <h1 className="text-sm font-semibold text-slate-700 md:text-base">{currentLabel}</h1>
+                        <h1 className="text-sm font-semibold text-white md:text-base">{currentLabel}</h1>
                         <p className="hidden text-xs text-slate-400 sm:block">Budget Tracking Platform</p>
                     </div>
                 </div>
@@ -89,7 +89,7 @@ export default function Navbar() {
             {/* Right — Actions & Profile */}
             <div className="flex items-center gap-2 md:gap-6">
                 <div className="hidden items-center gap-2 md:flex">
-                    <button className="text-gray-500 hover:text-gray-700 hover:bg-gray-50 p-2 rounded-lg transition">
+                    <button className="text-slate-300 hover:text-white hover:bg-white/10 p-2 rounded-lg transition">
                         <HiOutlineChatBubbleOvalLeftEllipsis className="h-[22px] w-[22px] stroke-[1.5]" />
                     </button>
 
@@ -98,9 +98,9 @@ export default function Navbar() {
                         arrowIcon={false}
                         inline
                         label={
-                            <div className="relative text-gray-500 hover:text-gray-700 hover:bg-gray-50 p-2 rounded-lg transition">
+                            <div className="relative text-slate-300 hover:text-white hover:bg-white/10 p-2 rounded-lg transition">
                                 <HiOutlineClock className="h-[22px] w-[22px] stroke-[1.5]" />
-                                <span className="absolute right-0.5 top-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[9px] font-bold text-white shadow-sm ring-2 ring-white">
+                                <span className="absolute right-0.5 top-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-[#D4923A] text-[9px] font-bold text-white shadow-sm ring-2 ring-[#1B2A4A]">
                                     3
                                 </span>
                             </div>
@@ -127,22 +127,22 @@ export default function Navbar() {
                         </div>
                     </Dropdown>
 
-                    <button className="text-gray-500 hover:text-gray-700 hover:bg-gray-50 p-2 rounded-lg transition">
+                    <button className="text-slate-300 hover:text-white hover:bg-white/10 p-2 rounded-lg transition">
                         <HiOutlineBuildingOffice className="h-[22px] w-[22px] stroke-[1.5]" />
                     </button>
                 </div>
 
-                <div className="hidden h-6 w-px bg-gray-200 md:block" />
+                <div className="hidden h-6 w-px bg-white/20 md:block" />
 
                 {/* Profile Dropdown */}
                 <Dropdown
                     arrowIcon={false}
                     inline
                     label={
-                        <div className="flex cursor-pointer items-center gap-2 rounded-lg px-2 py-1 -mx-2 transition-colors hover:bg-gray-50">
-                            <HiOutlineUserCircle className="h-6 w-6 text-gray-500 stroke-[1.5]" />
-                            <span className="hidden text-sm font-medium text-gray-700 lg:block">Birhane Araya</span>
-                            <HiChevronDown className="h-4 w-4 text-gray-400" />
+                        <div className="flex cursor-pointer items-center gap-2 rounded-lg px-2 py-1 -mx-2 transition-colors hover:bg-white/10">
+                            <HiOutlineUserCircle className="h-6 w-6 text-slate-300 stroke-[1.5]" />
+                            <span className="hidden text-sm font-medium text-white lg:block">Birhane Araya</span>
+                            <HiChevronDown className="h-4 w-4 text-slate-400" />
                         </div>
                     }
                 >
@@ -161,7 +161,7 @@ export default function Navbar() {
                     arrowIcon={false}
                     inline
                     label={
-                        <button className="ml-1 rounded-lg p-2 text-gray-500 transition hover:bg-gray-50 hover:text-gray-700 md:ml-2">
+                        <button className="ml-1 rounded-lg p-2 text-slate-300 transition hover:bg-white/10 hover:text-white md:ml-2">
                             <HiOutlineBars3 className="h-7 w-7 stroke-[1.5]" />
                         </button>
                     }

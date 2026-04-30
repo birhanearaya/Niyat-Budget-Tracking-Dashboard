@@ -25,11 +25,11 @@ const ROW_LABELS = [
 ];
 
 const ROW_COLORS = [
-    "#0645ba",
-    "#1d4ed8",
-    "#3b82f6",
-    "#60a5fa",
-    "#0645ba",
+    "#1B2A4A",
+    "#243554",
+    "#2E4A6E",
+    "#4A7BA8",
+    "#1B2A4A",
 ];
 
 interface NodeLayout {
@@ -121,7 +121,7 @@ export default function SankeyDiagram() {
                                 key={`link-${i}`}
                                 d={verticalBezier(sx, sy, tx, ty)}
                                 fill="none"
-                                stroke="#0645ba"
+                                stroke="#1B2A4A"
                                 strokeWidth={strokeW}
                                 strokeOpacity={opacity}
                             />

@@ -21,7 +21,7 @@ type ColKey = (typeof ALL_COLUMNS)[number]["key"];
 
 const statusColors: Record<Transaction["status"], string> = {
     Approved: "bg-emerald-50 text-emerald-700",
-    Encumbered: "bg-gray-100 text-[#0645ba]",
+    Encumbered: "bg-gray-100 text-[#1B2A4A]",
     Pending: "bg-amber-50 text-amber-700",
     Rejected: "bg-red-50 text-red-700",
     Settled: "bg-blue-50 text-blue-800",
@@ -30,7 +30,7 @@ const statusColors: Record<Transaction["status"], string> = {
 
 const typeColors: Record<Transaction["type"], string> = {
     Allocation: "text-emerald-700",
-    Encumbrance: "text-[#0645ba]",
+    Encumbrance: "text-[#1B2A4A]",
     Reversal: "text-gray-500",
     Expenditure: "text-blue-800",
 };
@@ -85,7 +85,7 @@ export default function TransactionTable() {
                             placeholder="Search by ID, department, type, status…"
                             value={search}
                             onChange={(e) => setSearch(e.target.value)}
-                            className="w-full max-w-sm rounded-lg border border-gray-200 bg-white py-2 pl-9 pr-3 text-sm focus:border-[#0645ba] focus:outline-none focus:ring-1 focus:ring-[#0645ba]"
+                            className="w-full max-w-sm rounded-lg border border-gray-200 bg-white py-2 pl-9 pr-3 text-sm focus:border-[#1B2A4A] focus:outline-none focus:ring-1 focus:ring-[#1B2A4A]"
                         />
                     </div>
 
@@ -113,7 +113,7 @@ export default function TransactionTable() {
                                             type="checkbox"
                                             checked={visibleCols.has(col.key)}
                                             onChange={() => toggleColumn(col.key)}
-                                            className="h-3.5 w-3.5 rounded border-gray-300 text-[#0645ba] focus:ring-[#0645ba]"
+                                            className="h-3.5 w-3.5 rounded border-gray-300 text-[#1B2A4A] focus:ring-[#1B2A4A]"
                                         />
                                         {col.label}
                                     </label>

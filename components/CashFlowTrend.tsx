@@ -1,16 +1,17 @@
 "use client";
 
 import {
-    BarChart,
-    Bar,
+    ResponsiveContainer,
+    LineChart,
+    Line,
     XAxis,
     YAxis,
     CartesianGrid,
     Tooltip,
-    ResponsiveContainer,
     Legend,
+    ReferenceLine,
 } from "recharts";
-import { sectorData, formatCompact, formatETB } from "@/lib/data";
+import { cashFlowData, formatCompact, formatETB } from "@/lib/data";
 
 type ChartTooltipEntry = {
     dataKey: string;
@@ -39,70 +40,78 @@ const CustomTooltip = ({ active, payload, label }: CustomTooltipProps) => {
                     {entry.name}: ETB {formatETB(entry.value)}
                 </p>
             ))}
+            {payload.length === 2 && (
+                <p className="mt-1 border-t border-gray-100 pt-1 text-xs font-medium text-gray-700">
+                    Net: ETB {formatETB(payload[0].value - payload[1].value)}
+                </p>
+            )}
         </div>
     );
 };
 
-export default function SectorBarChart() {
+export default function CashFlowTrend() {
     return (
         <div className="surface-panel p-6">
             <div className="mb-6">
                 <h3 className="text-base font-semibold text-gray-900">
-                    Sector-wise Distribution
+                    Cash Flow Trend
                 </h3>
                 <p className="text-sm text-gray-500">
-                    Top 5 sectors — utilized vs available budget
+                    Monthly inflows vs outflows — FY 2025/26
                 </p>
             </div>
-            <div className="h-[340px] w-full">
+            <div className="h-[300px] w-full">
                 <ResponsiveContainer width="100%" height="100%">
-                    <BarChart
-                        data={sectorData}
-                        layout="vertical"
-                        margin={{ top: 4, right: 24, left: 8, bottom: 0 }}
+                    <LineChart
+                        data={cashFlowData}
+                        margin={{ top: 4, right: 8, left: 8, bottom: 0 }}
                     >
                         <CartesianGrid
                             strokeDasharray="3 3"
                             stroke="#f3f4f6"
-                            horizontal={false}
+                            vertical={false}
                         />
                         <XAxis
-                            type="number"
-                            tickFormatter={(v: number) => formatCompact(v)}
+                            dataKey="month"
                             tick={{ fontSize: 12, fill: "#6b7280" }}
                             axisLine={{ stroke: "#e5e7eb" }}
                             tickLine={false}
                         />
                         <YAxis
-                            type="category"
-                            dataKey="sector"
-                            tick={{ fontSize: 12, fill: "#374151" }}
+                            tickFormatter={(v: number) => formatCompact(v)}
+                            tick={{ fontSize: 12, fill: "#6b7280" }}
                             axisLine={false}
                             tickLine={false}
-                            width={130}
+                            width={60}
                         />
                         <Tooltip content={<CustomTooltip />} />
                         <Legend
                             verticalAlign="top"
                             align="right"
-                            iconType="square"
+                            iconType="circle"
                             wrapperStyle={{ fontSize: 12, paddingBottom: 8 }}
                         />
-                        <Bar
-                            dataKey="utilized"
-                            name="Utilized"
-                            fill="#1B2A4A"
-                            radius={[0, 4, 4, 0]}
-                            barSize={18}
+                        <ReferenceLine y={0} stroke="#e5e7eb" />
+                        <Line
+                            type="monotone"
+                            dataKey="inflows"
+                            name="Inflows"
+                            stroke="#1B2A4A"
+                            strokeWidth={2.5}
+                            dot={{ fill: "#1B2A4A", r: 3 }}
+                            activeDot={{ r: 5, fill: "#1B2A4A" }}
                         />
-                        <Bar
-                            dataKey="available"
-                            name="Available"
-                            fill="#D4923A"
-                            radius={[0, 4, 4, 0]}
-                            barSize={18}
+                        <Line
+                            type="monotone"
+                            dataKey="outflows"
+                            name="Outflows"
+                            stroke="#D4923A"
+                            strokeWidth={2.5}
+                            dot={{ fill: "#D4923A", r: 3 }}
+                            activeDot={{ r: 5, fill: "#D4923A" }}
+                            strokeDasharray="6 3"
                         />
-                    </BarChart>
+                    </LineChart>
                 </ResponsiveContainer>
             </div>
         </div>

@@ -47,10 +47,10 @@ export default function AllocationsPage() {
                                 <input
                                     type="text"
                                     placeholder="Search limits..."
-                                    className="w-full pl-10 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:ring-[#0645ba] focus:border-[#0645ba] sm:w-64"
+                                    className="w-full pl-10 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:ring-[#1B2A4A] focus:border-[#1B2A4A] sm:w-64"
                                 />
                             </div>
-                            <Button color="blue" className="bg-[#0645ba] enabled:hover:bg-[#053a9e] rounded-lg">
+                            <Button color="blue" className="bg-[#1B2A4A] enabled:hover:bg-[#142238] rounded-lg">
                                 Create New Apportionment
                             </Button>
                         </div>
@@ -76,7 +76,7 @@ export default function AllocationsPage() {
                                         <TableCell className="text-gray-500">{row.subCity}</TableCell>
                                         <TableCell className="text-gray-500">{row.program}</TableCell>
                                         <TableCell className="text-right font-medium text-gray-900">{row.allocated.toLocaleString()}</TableCell>
-                                        <TableCell className="text-right font-medium text-[#0645ba]">{row.unallocated.toLocaleString()}</TableCell>
+                                        <TableCell className="text-right font-medium text-[#1B2A4A]">{row.unallocated.toLocaleString()}</TableCell>
                                         <TableCell className="text-center">
                                             <span className={`px-2.5 py-1 rounded-md text-xs font-semibold ${row.status === 'Active' ? 'bg-green-100 text-green-700' :
                                                 row.status === 'Warning' ? 'bg-amber-100 text-amber-700' :
@@ -86,7 +86,7 @@ export default function AllocationsPage() {
                                             </span>
                                         </TableCell>
                                         <TableCell className="text-right">
-                                            <button onClick={() => handleEdit(row)} className="text-[#0645ba] hover:underline flex items-center justify-end gap-1 font-medium transition">
+                                            <button onClick={() => handleEdit(row)} className="text-[#1B2A4A] hover:underline flex items-center justify-end gap-1 font-medium transition">
                                                 <HiOutlinePencilSquare className="h-4 w-4" /> Edit
                                             </button>
                                         </TableCell>
@@ -120,7 +120,7 @@ export default function AllocationsPage() {
 
                         <div className="bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
                             <p className="text-xs text-gray-400 mb-1">Current Allocated Ceiling</p>
-                            <p className="text-xl font-bold text-[#0645ba]">ETB {selectedAllocation?.allocated.toLocaleString()}</p>
+                            <p className="text-xl font-bold text-[#1B2A4A]">ETB {selectedAllocation?.allocated.toLocaleString()}</p>
                         </div>
 
                         <div>
@@ -131,7 +131,7 @@ export default function AllocationsPage() {
                         <div>
                             <label className="block text-sm font-medium text-gray-700 mb-2">Reason for Adjustment</label>
                             <textarea
-                                className="w-full resize-none p-3 text-sm text-gray-700 bg-white border border-gray-200 rounded-lg focus:ring-[#0645ba] focus:border-[#0645ba]"
+                                className="w-full resize-none p-3 text-sm text-gray-700 bg-white border border-gray-200 rounded-lg focus:ring-[#1B2A4A] focus:border-[#1B2A4A]"
                                 rows={3}
                                 placeholder="Include mandated approval memo reference..."
                             />
@@ -142,7 +142,7 @@ export default function AllocationsPage() {
                     <Button color="gray" onClick={() => setIsModalOpen(false)} className="rounded-lg bg-white">
                         Cancel
                     </Button>
-                    <Button onClick={() => setIsModalOpen(false)} className="bg-[#0645ba] enabled:hover:bg-[#053a9e] rounded-lg items-center gap-2 flex">
+                    <Button onClick={() => setIsModalOpen(false)} className="bg-[#1B2A4A] enabled:hover:bg-[#142238] rounded-lg items-center gap-2 flex">
                         <HiOutlineCheck className="h-4 w-4 mr-1" />
                         Submit Adjustment
                     </Button>

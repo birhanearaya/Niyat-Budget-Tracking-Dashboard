@@ -23,22 +23,23 @@ function KpiCard({ label, value, trend, icon, prefix = "", suffix = "" }: KpiCar
     const isNeutral = trend === 0;
 
     return (
-        <div className="surface-panel p-5">
+        <div className="surface-panel p-5 relative overflow-hidden">
+            <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#D4923A] to-[#D4923A]/40" />
             <div className="mb-3 flex items-center justify-between">
                 <span className="text-sm font-medium text-gray-500">{label}</span>
-                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#e8eef8] text-[#0645ba]">
+                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#D4923A]/15 text-[#D4923A]">
                     {icon}
                 </div>
             </div>
-            <div className="mb-1 text-2xl font-bold text-[#0645ba]">
+            <div className="mb-1 text-2xl font-bold text-[#1B2A4A]">
                 {prefix}{value}{suffix}
             </div>
             <div className="flex items-center gap-1 text-xs">
                 {!isNeutral && (
                     <span
                         className={`inline-flex items-center rounded-full px-2 py-0.5 font-medium ${isPositive
-                                ? "bg-emerald-50 text-emerald-700"
-                                : "bg-red-50 text-red-700"
+                            ? "bg-emerald-50 text-emerald-700"
+                            : "bg-red-50 text-red-700"
                             }`}
                     >
                         {isPositive ? "↑" : "↓"} {Math.abs(trend).toFixed(1)}%

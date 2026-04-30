@@ -1,0 +1,162 @@
+Paragraphs:
+===========
+
+
+
+
+
+Executive overview of IBEX
+
+IBEX (Integrated Budget and Expenditure System) is the core financial management information system for Ethiopian federal and regional governments, consolidating budget data, disbursement, and accounting functions into a single platform.[1][2]
+It evolved from two older systems—Budget Information System (BIS) and Budget Disbursement and Accounting (BDA)—and now runs across thousands of federal, regional, zonal, and woreda sites. 
+ Legal and policy context
+2.1 Ethiopian Government Financial Management Proclamation
+The Federal Government of Ethiopia Financial Administration Proclamation governs budgeting, disbursement, and accounting for all public bodies, including MoFED and BoFED, and sets out responsibilities for the Minister of Finance, heads of public bodies, and internal auditors.[4]
+Provisions on budget ceilings, revenue collection, disbursement controls, and reporting requirements are mirrored in IBEX’s Budget, Budget Control, and Accounts modules through commitment‑based controls, approval workflows, and standardized report formats.[1][4]
+2.2 Alignment with IBEX design
+IBEX is explicitly designed to support the PFM (Public Financial Management) reforms under the proclamation, including tighter budget controls, faster consolidation, and more transparent reporting.[5][1]
+The Budget Control module enforces budget‑ceiling limits before expenditure, and the Accounts module ensures that all transactions are recorded in a government‑approved chart of accounts, consistent with legal accounting standards.[6][1]
+System architecture and deployment
+IBEX is a web‑based client‑server application accessed via a browser (historically Internet Explorer), deployed on a central server at MoFED and regional BoFEDs, with local LAN or VSAT connectivity to zones and woredas.[3][2]
+It is organized into modules: Budget, Accounts, Accounts Consolidation, Budget Adjustment, Budget Control, and Administration (including Disbursement).[7][2]
+
+
+ Module workflows 
+Below are condensed, evidence‑based workflows for each module, suitable for inclusion in a multi‑page with subsections and flowcharts.
+Budget module workflow
+5.1 Core structure and setup
+The Budget Module supports Recurrent (14‑digit coding) and Capital (19‑digit coding) institutions, with hierarchical codes that reflect federal–regional–zonal–woreda structures.[8][7]
+Users first create a budget year and define budget phases (Requested → Recommended → Approved), controlled by the Administration module and linked to legal approval cycles.[8][7]
+5.2 Data entry and approval
+Budget data are entered at Budgetary Institutions (BIs); revenue budgets are recorded by account code and approved amounts, while capital and recurrent budgets are assigned by source of finance (e.g., Treasury, Revenue, Loan, Assistance).[7][8]
+Approval flows from Woreda → Zone → Region → Federal (MoFED), with each level reviewing and approving aggregated figures before final ceiling confirmation.[1][7]
+5.3 Transaction posting and reporting
+Once approved, budgets are exported from IBEX or imported from legacy BIS/BDA, and the system automatically generates budget summaries and budget‑by‑institution reports.[8][7]
+Users can generate adjusted budget and budget‑summary reports filtered by budget type (Recurrent, Capital), source of finance (Treasury 01‑Treasury), and time period.[7][8]
+Suggested flowchart (PDF):
+Budget year setup → Budget phase definition → BI creation → Data entry (Recurrent/Capital) → Revenue budget → Approval hierarchy (Woreda–Zone–Region–Federal) → Export/Import → Budget summary / Adjusted budget report.
+
+
+ Accounts module workflow
+6.1 Transaction posting
+The Accounts Module posts debit/credit transactions only at Treasury and Procurement reporting units; users select the fiscal year, BI code, bank account (e.g., 01‑Treasury), and month before entering a transaction.[6][8]
+Transactions are recorded in transaction registers, and can be selected for posting via checkboxes; the system allows multiple transactions to be posted at once, with a confirmation screen before finalization.[6]
+6.2 Posting and reversal controls
+After selection, the user clicks Post; the system validates integrity and posts to the general ledger, updating budget‑control balances and cash or liability accounts as needed.[6]
+Deletions or reversals require higher‑level permissions and must follow financial‑administration rules (e.g., no reversal of settled or audited transactions without audit and approval tracks).[4][6]
+6.3 Reports and monthly reporting
+The Monthly Report is used for cash‑accounting units (e.g., 111‑01‑01, 122, 127, 341) and generates trial balances and monthly summaries by completing entries for Cash on Hand, Net Equity, Recurrent Expenditure, Payables, Receivables, etc.[8][6]
+Monthly reports are automatically posted by the system once saved, reducing manual journal‑posting errors.[8]
+Suggested table:
+
+
+
+
+ Budget Adjustment module
+7.1 Types of adjustments
+The Budget Adjustment Module records Budget Transfers (reallocations within or between BIs) and Budget Supplements (adding new amounts within legal ceilings).[9][6]
+Adjustments are driven by performance gaps, program changes, or unforeseen needs, and must follow proclamation‑based ceilings and approval rules.[9][4]
+7.2 Budget transfer workflow
+The user selects the budget year, opens the Budget Transfer wizard, and chooses the source and destination BI codes from the budget tree.[9][8]
+After entering the amount, source of finance, and any required approval flags, the user clicks Post; the system updates the budget ceilings and generates adjustment‑ledger entries.[9]
+Editing or deleting a transfer requires permission‑level checks; lower‑level units may edit draft transfers, while deletion is restricted to higher‑level administrators.[9][6]
+7.3 Reporting and data migration
+The module generates Budget Summary – Adjusted Budget by Budgetary Institution and other adjustment reports, showing before/after balances by recurrent, capital, or all.[8][9]
+Data can be exported to encrypted files and imported back into IBEX for synchronization between central servers and regional/standalone installations.[9]
+Suggested flowchart:
+Select year → Open Budget Adjustment → Choose transfer/supplement → Select source/destination BI → Enter amount, source of finance → (optional) approval flag → Post → Update ceilings → Generate adjustment report.
+
+
+Budget Control module
+8.1 Commitment‑based control
+The Budget Control Module enforces pre‑commitment checks to ensure that no expenditure exceeds the budget ceiling for that BI, budget type, and source of finance.[1][6]
+Commitments are recorded when purchase orders or contracts are issued, marking budget as “committed” before actual payment is processed in Accounts.[10][1]
+8.2 Integration with Accounts and Disbursement
+When an expenditure is posted in the Accounts or Disbursement module, the system checks whether sufficient uncommitted or available budget remains; if not, the transaction is blocked or flagged.[1][6]
+The module also tracks unspent balances, arrears, and pipeline obligations, aligning with financial‑administration rules on unspent funds and arrears management.[10][4]
+8.3 Reporting
+Key reports include budget utilization, commitment status, and variance (budget vs. actual) by budget type and source of finance.[10][6]
+These reports support internal audit and MoFED/BoFED monitoring, helping to prevent domestic payment arrears and ensure credible budget execution.[5]
+Administration module (user permissions and configuration)
+9.1 User roles and permissions
+The Administration Module defines user roles, module access, and transaction‑level permissions (create, view, edit, delete, post, approve).[11][6]
+For example, an Admin user may access Administration, Budget, Accounts, Budget Adjustment, Budget Control, Disbursement, while a Woreda account clerk may only access Accounts and Budget for their BI.[6]
+9.2 Core configurations
+Key configurations include:
+Setup of reporting units (federal, regional, zonal, woreda, special units).
+Definition of Chart of Accounts aligned with government‑approved accounting standards.[6]
+
+Configuration of source of finance codes (Treasury, Revenue, Loan, Assistance) and budget phases.[7][8]
+Network and server settings (MoFED central server, BoFED LAN, VSAT/standalone sites).[2][3]
+9.3 Security and audit controls
+The system logs logins, transaction postings, and budget‑adjustment actions, supporting internal audit and compliance with the Financial Administration Proclamation.[11][4]
+Role‑based access control ensures that no single user can both approve high‑level budgets and delete transactions without supervisory oversight.[11][6]
+
+ Strengths of IBEX
+Integration: Combines budget preparation, adjustment, control, and accounting in one system, reducing manual reconciliation and data errors.[2][1]
+Scalability: Runs over 2,100 sites nationwide, covering federal, regional, zonal, and woreda levels.[3]
+Legal alignment: Supports proclamation‑driven budget ceilings, commitment‑based controls, and standardized reporting.[4][5]
+Automation: Automatic posting of monthly reports and consolidated budget summaries improves timeliness and reduces manual workloads.[8][6]
+Weaknesses and limitations
+Legacy architecture: Older versions (e.g., 1.3) rely on outdated browser and server technologies, limiting integration with modern systems and cloud‑based analytics.[2][11]
+Manual‑style workflows: Some functions still require manual approvals and data‑migration steps, especially in standalone or low‑bandwidth sites.[2][9]
+Fragmented documentation: Official manuals and training materials are scattered across MoFED‑related repositories, PDF Coffee, Scribd, and YouTube, complicating unified training and support.[12][11][6]
+Reporting depth: While standard reports cover essentials, ad‑hoc or analytical dashboards (e.g., real‑time cash‑flow or program‑based performance) are limited without external tools.[5][10]
+
+
+Implementation best practices
+Phased rollout: Start with Budget and Accounts modules at MoFED and BoFED, then extend to Budget Control and Adjustment after stable budget‑phase definitions and chart‑of‑accounts finalization.[7][1]
+Role‑based training: Provide separate tracks for accountants, budget officers, regional administrators, and MoFED/BoFED central‑level users, using the Amharic video tutorials and local training modules.[12][8]
+Standardized configuration: Enforce a single national chart of accounts, BI coding standards, and source‑of‑finance codes across all regions to ensure consolidated reporting.[6][8]
+Backup and synchronization: Use data‑migration utilities and scheduled exports/imports between central servers and regional/standalone installations to maintain data integrity.[2][9]
+
+Upgrade notes to IBEX 3.0
+13.1 Key changes in version 3.0
+Improved web‑client: Better browser compatibility and UI, moving away from legacy Internet‑Explorer dependencies.[13][14]
+Enhanced reporting and dashboards: New screens and reports for budget‑utilization, commitment‑status, and cash‑position, with some export to Excel or PDF.[13][6]
+Strengthened security layer: Refined role‑based access control, audit‑log enhancements, and better password‑policy enforcement.[11][6]
+Simplified data migration: Streamlined export/import tools for budget and budget‑adjustment data across federal–regional nodes.[3][9]
+13.2 Upgrade considerations
+Pre‑upgrade:
+Complete all unposted transactions and finalize budget‑adjustment records.
+Back up databases for all MoFED, BoFED, and regional servers.[3][11]
+Post‑upgrade:
+Re‑test user roles, permissions, and report outputs.
+Update official training manuals and local YouTube‑style tutorials to reflect 3.0 workflows and menus.[12][13]
+13.3 Roadmap suggestions
+Plan for hybrid integration with newer IFMIS‑style platforms or data‑warehouse tools to support advanced analytics while retaining IBEX 3.0 as the core PFM engine.[5][2]
+Advocate for centralized documentation and MoFED‑hosted manuals to avoid reliance on fragmented third‑party sites (Studocu, Scribd, PDF‑sharing sites).[11][8][6]
+
+Appendix ideas 
+Appendix A: Sample IBEX workflow diagrams (Budget, Accounts, Budget Adjustment, Budget Control) as flowcharts.
+Appendix B: Screenshots from Amharic video tutorials (labels and key fields marked in English).[15][13][12]
+Appendix C: Comparison table of IBEX 1.x vs 3.0 (modules, security, reporting, deployment).
+Appendix D: Alignment matrix mapping IBEX modules to Financial Administration Proclamation articles (e.g., budget ceilings, disbursement controls, reporting obligations).[4]
+
+https://www.pefa.org/sites/pefa/files/assessments/reports/ET-SNNPR-Oct10-PFMPR-SN-Public.pdf          
+https://www.facebook.com/100064698735876/posts/ibex-integrated-budget-and-expenditure-system-and-ifmis-integrated-financial-man/102213341351148/          
+https://documents1.worldbank.org/curated/en/099755011042218629/pdf/BOSIB0be698df306e096f30c9ce750a34c5.pdf      
+https://www.policyvault.africa/policy/federal-government-of-ethiopia-financial-administration-proclamation/        
+https://www.pefa.org/sites/pefa/files/assessments/reports/ET-Oromia-Oct10-PFMPR-SN-Public.pdf     
+https://pdfcoffee.com/ibexaccounts-module-users-manual-pdf-free.html                     
+https://www.studocu.com/row/document/addis-ababa-university/accounting-and-finance/ibexbudget-module-users-manual-compress/44092468         
+https://www.studocu.com/row/document/addis-ababa-university/accounting-and-finance/ibex-training-moduledocx/44092385               
+https://www.scribd.com/document/819779773/Budget-Adjustment          
+http://www.repository.smuc.edu.et/bitstream/123456789/6587/1/Assessment of Budget Management and Control Practice in AmharaRegion(1).pdf    
+https://www.scribd.com/document/480819831/IBEXAdministratorManual        
+https://www.youtube.com/watch?v=BblLNiEXyPs    
+https://www.youtube.com/watch?v=VaTSzzD-q2I    
+https://www.youtube.com/c/BerhanuTilahun-IBEX-SYS/about 
+https://www.youtube.com/watch?v=o8x8bzno8Rg 
+https://www.lawethiopia.com/images/federal_proclamation/proclamations_by_number/971.pdf 
+https://www.studocu.com/row/document/addis-ababa-university/accounting-and-finance/ibex-training-moduledocx/44092396 
+
+
+
+Tables:
+===========
+Report type | Purpose | Typical selection criteria
+Transaction Detail | Line‑by‑line transaction postings | BI, month, bank account (e.g., 01‑Treasury)
+Monthly Report | Cash‑basis trial balance and summary | BI, all line items, balanced check
+Monthly Trial Balance | Sub‑ledger and GL reconciliation | BI, month, chart‑of‑accounts level
+----------------------------------------

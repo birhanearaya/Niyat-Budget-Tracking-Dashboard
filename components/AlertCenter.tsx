@@ -25,7 +25,7 @@ export default function AlertCenter() {
                 <div className="rounded-xl border border-gray-200 bg-white overflow-hidden">
                     <div className="flex items-center justify-between bg-[#fef9e7] px-4 py-3 border-b border-yellow-200">
                         <div className="flex items-center gap-2">
-                            <HiOutlineExclamationTriangle className="h-5 w-5 text-[#e0b700]" />
+                            <HiOutlineExclamationTriangle className="h-5 w-5 text-[#D4923A]" />
                             <h3 className="text-sm font-semibold text-gray-900">Hard Stop Triggers</h3>
                         </div>
                         <span className="rounded-full bg-yellow-200/50 px-2.5 py-0.5 text-xs font-medium text-[#b8960a]">

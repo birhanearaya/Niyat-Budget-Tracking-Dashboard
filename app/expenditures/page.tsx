@@ -46,7 +46,7 @@ export default function ExpendituresPage() {
                                     <TableRow key={row.id} className="bg-white hover:bg-gray-50/50">
                                         <TableCell className="font-mono text-xs text-gray-900 font-semibold">{row.id}</TableCell>
                                         <TableCell className="text-gray-500 text-sm">{row.date}</TableCell>
-                                        <TableCell className="font-mono text-xs text-[#0645ba] cursor-pointer hover:underline">{row.refAuth}</TableCell>
+                                        <TableCell className="font-mono text-xs text-[#1B2A4A] cursor-pointer hover:underline">{row.refAuth}</TableCell>
                                         <TableCell className="font-medium text-gray-900">{row.payee}</TableCell>
                                         <TableCell className="text-gray-500">{row.category}</TableCell>
                                         <TableCell className="text-right font-medium text-gray-900">{row.amount.toLocaleString()}</TableCell>

@@ -1,16 +1,16 @@
 "use client";
 
 import {
-    BarChart,
-    Bar,
+    ResponsiveContainer,
+    AreaChart,
+    Area,
     XAxis,
     YAxis,
     CartesianGrid,
     Tooltip,
-    ResponsiveContainer,
     Legend,
 } from "recharts";
-import { sectorData, formatCompact, formatETB } from "@/lib/data";
+import { monthlyExpenditureByCategory, formatCompact, formatETB } from "@/lib/data";
 
 type ChartTooltipEntry = {
     dataKey: string;
@@ -43,43 +43,40 @@ const CustomTooltip = ({ active, payload, label }: CustomTooltipProps) => {
     );
 };
 
-export default function SectorBarChart() {
+export default function RecurrentVsCapital() {
     return (
         <div className="surface-panel p-6">
             <div className="mb-6">
                 <h3 className="text-base font-semibold text-gray-900">
-                    Sector-wise Distribution
+                    Recurrent vs Capital Expenditure
                 </h3>
                 <p className="text-sm text-gray-500">
-                    Top 5 sectors — utilized vs available budget
+                    Cumulative spending by expenditure type — FY 2025/26
                 </p>
             </div>
-            <div className="h-[340px] w-full">
+            <div className="h-[300px] w-full">
                 <ResponsiveContainer width="100%" height="100%">
-                    <BarChart
-                        data={sectorData}
-                        layout="vertical"
-                        margin={{ top: 4, right: 24, left: 8, bottom: 0 }}
+                    <AreaChart
+                        data={monthlyExpenditureByCategory}
+                        margin={{ top: 4, right: 8, left: 8, bottom: 0 }}
                     >
                         <CartesianGrid
                             strokeDasharray="3 3"
                             stroke="#f3f4f6"
-                            horizontal={false}
+                            vertical={false}
                         />
                         <XAxis
-                            type="number"
-                            tickFormatter={(v: number) => formatCompact(v)}
+                            dataKey="month"
                             tick={{ fontSize: 12, fill: "#6b7280" }}
                             axisLine={{ stroke: "#e5e7eb" }}
                             tickLine={false}
                         />
                         <YAxis
-                            type="category"
-                            dataKey="sector"
-                            tick={{ fontSize: 12, fill: "#374151" }}
+                            tickFormatter={(v: number) => formatCompact(v)}
+                            tick={{ fontSize: 12, fill: "#6b7280" }}
                             axisLine={false}
                             tickLine={false}
-                            width={130}
+                            width={60}
                         />
                         <Tooltip content={<CustomTooltip />} />
                         <Legend
@@ -88,21 +85,27 @@ export default function SectorBarChart() {
                             iconType="square"
                             wrapperStyle={{ fontSize: 12, paddingBottom: 8 }}
                         />
-                        <Bar
-                            dataKey="utilized"
-                            name="Utilized"
+                        <Area
+                            type="monotone"
+                            dataKey="recurrent"
+                            name="Recurrent"
+                            stackId="1"
                             fill="#1B2A4A"
-                            radius={[0, 4, 4, 0]}
-                            barSize={18}
+                            fillOpacity={0.8}
+                            stroke="#1B2A4A"
+                            strokeWidth={2}
                         />
-                        <Bar
-                            dataKey="available"
-                            name="Available"
+                        <Area
+                            type="monotone"
+                            dataKey="capital"
+                            name="Capital"
+                            stackId="1"
                             fill="#D4923A"
-                            radius={[0, 4, 4, 0]}
-                            barSize={18}
+                            fillOpacity={0.6}
+                            stroke="#D4923A"
+                            strokeWidth={2}
                         />
-                    </BarChart>
+                    </AreaChart>
                 </ResponsiveContainer>
             </div>
         </div>

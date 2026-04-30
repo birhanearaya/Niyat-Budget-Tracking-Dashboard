@@ -92,7 +92,7 @@ export default function TransfersPage() {
 
                             <div className="flex flex-col gap-3 pt-4 sm:flex-row sm:justify-end sm:gap-4">
                                 <Button color="light" className="bg-white">Discard Form</Button>
-                                <Button className="bg-[#0645ba] enabled:hover:bg-[#053a9e] items-center flex gap-2">
+                                <Button className="bg-[#1B2A4A] enabled:hover:bg-[#142238] items-center flex gap-2">
                                     <HiOutlineDocumentArrowUp className="w-4 h-4 mr-2" />
                                     Submit Transfer for Authorization
                                 </Button>

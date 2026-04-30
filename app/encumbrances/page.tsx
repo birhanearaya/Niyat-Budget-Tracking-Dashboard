@@ -47,7 +47,7 @@ export default function EncumbrancesPage() {
                                 <input
                                     type="text"
                                     placeholder="Purchase Order / Ref ID..."
-                                    className="w-full pl-10 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:ring-[#0645ba] focus:border-[#0645ba] sm:w-72"
+                                    className="w-full pl-10 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:ring-[#1B2A4A] focus:border-[#1B2A4A] sm:w-72"
                                 />
                             </div>
                         </div>
@@ -74,7 +74,7 @@ export default function EncumbrancesPage() {
                                         </TableCell>
                                         <TableCell className="text-gray-500">{row.sector}</TableCell>
                                         <TableCell className="text-right font-medium text-gray-900">{row.amount.toLocaleString()}</TableCell>
-                                        <TableCell className="text-right font-medium text-[#0645ba]">{row.available.toLocaleString()}</TableCell>
+                                        <TableCell className="text-right font-medium text-[#1B2A4A]">{row.available.toLocaleString()}</TableCell>
                                         <TableCell className="text-center">
                                             <span className={`px-2.5 py-1 rounded-md text-xs font-semibold ${row.status === 'Validated' ? 'bg-green-100 text-green-700' :
                                                 row.status === 'Pending Approval' ? 'bg-amber-100 text-amber-700' :
@@ -85,7 +85,7 @@ export default function EncumbrancesPage() {
                                         </TableCell>
                                         <TableCell className="text-right">
                                             {row.status === 'Pending Approval' ? (
-                                                <button onClick={() => handleReview(row)} className="text-[#e0b700] hover:text-amber-600 flex items-center justify-end gap-1 font-semibold transition ml-auto">
+                                                <button onClick={() => handleReview(row)} className="text-[#D4923A] hover:text-amber-600 flex items-center justify-end gap-1 font-semibold transition ml-auto">
                                                     Review Request
                                                 </button>
                                             ) : (
@@ -116,7 +116,7 @@ export default function EncumbrancesPage() {
                             </div>
                             <div className="bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
                                 <p className="text-xs text-gray-400 mb-1">Remaining Valid Allocation</p>
-                                <p className={`text-xl font-bold ${isOverLimit ? 'text-red-500' : 'text-[#0645ba]'}`}>
+                                <p className={`text-xl font-bold ${isOverLimit ? 'text-red-500' : 'text-[#1B2A4A]'}`}>
                                     ETB {selectedAvailable.toLocaleString()}
                                 </p>
                             </div>
@@ -135,7 +135,7 @@ export default function EncumbrancesPage() {
                         <div>
                             <label className="block text-sm font-medium text-gray-700 mb-2">Audit Memo & Override Justification</label>
                             <textarea
-                                className="w-full resize-none p-3 text-sm text-gray-700 bg-white border border-gray-200 rounded-lg focus:ring-[#0645ba] focus:border-[#0645ba]"
+                                className="w-full resize-none p-3 text-sm text-gray-700 bg-white border border-gray-200 rounded-lg focus:ring-[#1B2A4A] focus:border-[#1B2A4A]"
                                 rows={4}
                                 placeholder="Log internal comments for standard operating procedures..."
                             />

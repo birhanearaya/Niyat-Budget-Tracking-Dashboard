@@ -1,16 +1,16 @@
 "use client";
 
 import {
+    ResponsiveContainer,
     BarChart,
     Bar,
     XAxis,
     YAxis,
     CartesianGrid,
     Tooltip,
-    ResponsiveContainer,
     Legend,
 } from "recharts";
-import { sectorData, formatCompact, formatETB } from "@/lib/data";
+import { priorYearComparison, formatCompact, formatETB } from "@/lib/data";
 
 type ChartTooltipEntry = {
     dataKey: string;
@@ -27,6 +27,12 @@ interface CustomTooltipProps {
 
 const CustomTooltip = ({ active, payload, label }: CustomTooltipProps) => {
     if (!active || !payload) return null;
+    const current = payload.find(p => p.dataKey === "currentYear");
+    const prior = payload.find(p => p.dataKey === "priorYear");
+    const change = current && prior && prior.value > 0
+        ? ((current.value - prior.value) / prior.value * 100)
+        : 0;
+
     return (
         <div className="rounded-lg border border-gray-200 bg-white px-4 py-3 shadow-sm">
             <p className="mb-1 text-sm font-medium text-gray-900">{label}</p>
@@ -39,47 +45,48 @@ const CustomTooltip = ({ active, payload, label }: CustomTooltipProps) => {
                     {entry.name}: ETB {formatETB(entry.value)}
                 </p>
             ))}
+            <p className={`mt-1 border-t border-gray-100 pt-1 text-xs font-medium ${change >= 0 ? "text-emerald-600" : "text-red-500"}`}>
+                {change >= 0 ? "↑" : "↓"} {Math.abs(change).toFixed(1)}% YoY
+            </p>
         </div>
     );
 };
 
-export default function SectorBarChart() {
+export default function PriorYearComparison() {
     return (
         <div className="surface-panel p-6">
             <div className="mb-6">
                 <h3 className="text-base font-semibold text-gray-900">
-                    Sector-wise Distribution
+                    Year-over-Year Comparison
                 </h3>
                 <p className="text-sm text-gray-500">
-                    Top 5 sectors — utilized vs available budget
+                    Current fiscal year vs prior year allocation by sector
                 </p>
             </div>
-            <div className="h-[340px] w-full">
+            <div className="h-[300px] w-full">
                 <ResponsiveContainer width="100%" height="100%">
                     <BarChart
-                        data={sectorData}
-                        layout="vertical"
+                        data={priorYearComparison}
                         margin={{ top: 4, right: 24, left: 8, bottom: 0 }}
                     >
                         <CartesianGrid
                             strokeDasharray="3 3"
                             stroke="#f3f4f6"
-                            horizontal={false}
+                            horizontal={true}
+                            vertical={false}
                         />
                         <XAxis
-                            type="number"
-                            tickFormatter={(v: number) => formatCompact(v)}
-                            tick={{ fontSize: 12, fill: "#6b7280" }}
+                            dataKey="sector"
+                            tick={{ fontSize: 11, fill: "#6b7280" }}
                             axisLine={{ stroke: "#e5e7eb" }}
                             tickLine={false}
                         />
                         <YAxis
-                            type="category"
-                            dataKey="sector"
-                            tick={{ fontSize: 12, fill: "#374151" }}
+                            tickFormatter={(v: number) => formatCompact(v)}
+                            tick={{ fontSize: 12, fill: "#6b7280" }}
                             axisLine={false}
                             tickLine={false}
-                            width={130}
+                            width={56}
                         />
                         <Tooltip content={<CustomTooltip />} />
                         <Legend
@@ -89,18 +96,18 @@ export default function SectorBarChart() {
                             wrapperStyle={{ fontSize: 12, paddingBottom: 8 }}
                         />
                         <Bar
-                            dataKey="utilized"
-                            name="Utilized"
+                            dataKey="currentYear"
+                            name="EFY 2018 (Current)"
                             fill="#1B2A4A"
-                            radius={[0, 4, 4, 0]}
-                            barSize={18}
+                            radius={[6, 6, 0, 0]}
+                            barSize={20}
                         />
                         <Bar
-                            dataKey="available"
-                            name="Available"
+                            dataKey="priorYear"
+                            name="EFY 2017 (Prior)"
                             fill="#D4923A"
-                            radius={[0, 4, 4, 0]}
-                            barSize={18}
+                            radius={[6, 6, 0, 0]}
+                            barSize={20}
                         />
                     </BarChart>
                 </ResponsiveContainer>

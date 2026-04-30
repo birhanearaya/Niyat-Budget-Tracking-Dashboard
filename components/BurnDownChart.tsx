@@ -92,9 +92,9 @@ export default function BurnDownChart() {
                             dataKey="expended"
                             name="Expended"
                             stackId="1"
-                            fill="#0645ba"
+                            fill="#1B2A4A"
                             fillOpacity={0.85}
-                            stroke="#0645ba"
+                            stroke="#1B2A4A"
                             strokeWidth={2}
                         />
                         <Area
@@ -102,9 +102,9 @@ export default function BurnDownChart() {
                             dataKey="encumbered"
                             name="Encumbered"
                             stackId="1"
-                            fill="#0645ba"
-                            fillOpacity={0.2}
-                            stroke="#0645ba"
+                            fill="#D4923A"
+                            fillOpacity={0.3}
+                            stroke="#D4923A"
                             strokeWidth={1}
                             strokeDasharray="4 2"
                         />

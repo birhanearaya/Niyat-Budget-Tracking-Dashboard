@@ -19,6 +19,7 @@ import AuditLog from "@/components/AuditLog";
 import PlanVsExecutionSector from "@/components/PlanVsExecutionSector";
 import PlanVsExecutionSubCity from "@/components/PlanVsExecutionSubCity";
 import PlanVsExecutionObjectCode from "@/components/PlanVsExecutionObjectCode";
+import SectorBudgetTypeBreakdown from "@/components/SectorBudgetTypeBreakdown";
 
 export default function DashboardPage() {
   return (
@@ -88,6 +89,9 @@ export default function DashboardPage() {
             <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
               <CashFlowTrend />
               <RecurrentVsCapital />
+            </div>
+            <div className="mt-6">
+              <SectorBudgetTypeBreakdown />
             </div>
           </section>
 

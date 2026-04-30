@@ -54,6 +54,12 @@ export default function ControlBar() {
             <div className="flex w-full flex-wrap items-center gap-2 xl:ml-auto xl:w-auto">
                 <HiOutlineFunnel className="h-4 w-4 text-slate-400" />
                 <select className="rounded-xl border px-3 py-2 text-sm text-slate-700">
+                    <option value="">Budget Type</option>
+                    <option value="capital">Capital Budget</option>
+                    <option value="recurrent">Recurrent Budget</option>
+                    <option value="contingency">Contingency Budget</option>
+                </select>
+                <select className="rounded-xl border px-3 py-2 text-sm text-slate-700">
                     <option value="">Sector Bureau</option>
                     {filterOptions.sectors.map((o) => (
                         <option key={o.value} value={o.value}>
